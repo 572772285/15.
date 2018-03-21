@@ -2,5 +2,9 @@
 
 p{
 	color:blue;
-	font-size: 24px;
+	font-size: 20px;
+}
+ul{
+	color: tomato;
+	font-size: 30px;
 }

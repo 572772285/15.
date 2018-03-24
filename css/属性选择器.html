@@ -4,30 +4,31 @@
 	<meta charset="UTF-8">
 	<title>属性选择器</title>
 	<style>
-		[title]{
+/*		[title]{
 			color: red;
 		}
 		[title=kuazhu]{
 			color: green;
-		}
+		}*/
 /*		[title$=com]{
 			color: yellow;
 		}*/
 /*		[title~=com]{
 			color:yellow; 
 		}*/
-		[title|='www']{
-			color: yellow;
+		[title|=kuazhu]{
+			color:red;
 		}
 	</style>
 </head>
 <body>
-	<a href="#" title="kuazhu com">11</a>	
+	<a href="#" title="kuazhu">11</a>	
 	<a href="#">22</a>	
 	<a href="#" title="">33</a>	
 	<a href="#">44</a>	
 	<a href="#" title="www kuazhu.com">55</a>
 	<a href="#" title="kuazhu.com">55</a>	
-	<a href="#" title="kuazhu.com">55</a>	
+	<a href="#" title="kuazhu-com">55</a>
+	<a href="#" title="kuazhu com">55</a>	
 </body>
 </html>

@@ -20,24 +20,23 @@
 		.bottomnew{
 			margin-top: 15px;
 			margin-left: 80px;
-			border-top: 3px solid gray;
+			/*border-top: 3px solid gray;*/
 			border-bottom: 3px solid gray;
+			overflow: hidden;
 		}
 		.title2{
 			font:bold 25px STSong;
 			margin-top: 20px;
 			color: blue;
 		}
-		.title2>li{
+		span{
 			font: 15px STHeiti;
-			color: black;
+			color: #999;
 			border-bottom: 1px dashed gray;
 		}
 		.style1{
 			font-size: 15px;
-			padding-top: 20px;
-			padding-bottom: 20px;
-			width: 400px;
+			width: 800px;
 			display: inline-block;
 		}
 		.jpg1{
@@ -46,8 +45,25 @@
 		.li1style{
 			font:normal bold 18px STHeiti;
 		}
+		 li:before{
+			content:"";
+			display: inline-block;
+			border:1px solid #069;
+			width: 3px;
+			height:3px;
+			background-color:#069;
+			margin-bottom: 4px;
+		}
+		li{
+			line-height: 40px;
+		}
+		h2{
+			border-top: 2px solid blue;
+		}
+		ul{
+			border-top: 1px solid gray;
+		}
 		.li2{
-			margin-top: 10px;
 			border-top: 1px dashed gray;
 		}
 		style
@@ -55,9 +71,12 @@
 </head>
 <body>
 	<div class="bottomnew">
-		<ul class="title2">最新新闻
-		<li>LATEST NEWS</li>
+		<div class="yaxian">
+			<ul>
+			<h2  class="title2">最新新闻</h2>
+			<span>LATEST NEWS</span>
 		</ul>
+		</div>
 		<ul class="style1">
 			<li><a href="#" target="_blank" class="li1style">安倍为“自救”不择手段：准备舍弃妻子，力助美国打击..</a><time>19:06</time></li>
 			<li class="li2"><a href="#" target="_blank">商务段位家用价位 瑞风R3不做“微面”版家用MPV</a><time>15:22</time></li>

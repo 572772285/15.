@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>网页标准布局案例</title>
+	<style>
+		*{
+			margin: 0px;
+			padding: 0px;
+		}
+		body{
+			width: 80%;
+			margin:10px auto;
+		}
+		header{
+			width: 100%;
+			
+		}
+		.head1{
+			width: 100px;
+			height: 100px;
+			background-color: red;
+			float: left;
+		}
+		.head2{
+			width: 30%;
+			height: 50px;
+			background-color: gray;
+			float: right;
+		}
+		.head3{
+			width: 80%;
+			height: 50px;
+			background-color: purple;
+			float: right;
+			margin-bottom: 20px;
+		}
+		.clearfix:after{
+			content: "";
+			clear: both;
+			display: block;
+			height: 0px;
+			visibility: hidden;
+		}
+		.article3{
+			width: 200px;
+			height:700px;
+			background-color: #068;
+			float: right;
+
+		}
+		.article4{
+			width: 200px;
+			height:600px;
+			background-color:#265;
+			float: right;
+			margin-right: 10px;
+		}
+		.article1{
+			width: 600px;
+			height:300px;
+			background-color:#6abf21;
+			margin-bottom: 10px;
+		}
+		.article2{
+			width: 600px;
+			height:300px;
+			background-color: #333;
+			margin-bottom: 10px;
+		}
+		.article5{
+			width: 800px;
+			height: 100px;
+			background-color: red;
+		}
+		.footer1{
+			width: 100%;
+			height: 100px;
+			background-color:yellow;
+			margin-top: 10px;
+		}
+
+	</style>
+</head>
+<body>
+	<header class="clearfix">
+		<div class="head1"></div>
+		<div class="head2"></div>
+		<div class="head3"></div>
+	</header>
+	<article class="clearfix">
+		<div class="article3"></div>
+		<div class="article4"></div>
+		<div>
+			<div class="article1"></div>
+			<div class="article2"></div>
+		</div>
+		<div class="article5"></div>
+	</article>
+	<footer>
+		<div class="footer1"></div>
+	</footer>
+</body>
+</html>

@@ -9,9 +9,10 @@
 			margin: 0px;
 		}
 		nav{
-			width: 100%;
+			width: 1360px;
 			height: 63px;
 			background-color:#eff4fa;
+			margin-bottom: 10px;
 		}
 		.mali{
 			float: left;
@@ -20,9 +21,8 @@
 		}
 		.head1{
 			width: 300px;
-			height: 63px;
+			line-height: 60px;
 			float: right;
-			margin-top: 15px;
 		}
 		.head1 a{
 			text-decoration: none;
@@ -30,62 +30,118 @@
 			font-size: 12px;
 			margin-right: 5px;
 		}
-		article{
-			width: 100%;
+		section{
+			width:1360px;
+			height: 500px;
 		}
-		.article1{
+		.box0{
+			width:1360px;
+			height: 433;
+		}
+		.box1{
+			width:530px;
 			float: left;
-			margin-left: 230px;
-			margin-top: 150px;
+			margin-left: 200px;
+			margin-top: 100px;
 		}
-		.article2{
-		width: 334px;
-		float: right;
-		margin-right: 225px;
-		border:1px solid gray;
-		border-radius: 5px 5px;
-		margin-top: 120px;
+		.box2{
+			width: 334px;
+			height: 380px;
+			float: right;
+			margin-right: 200px;
+			margin-top: 100px;
+			border:1px solid gray;
+			border-radius: 15px 15px;
+			background-color: #eff4fa;
 		}
-		.t1{
-			width: 100%;
-			font-size: 16px;
-			font-family: "lucida Grande",Verdana,"Microsoft YaHei";
-			line-height: 45px;
-			background-color: #f9fbfe;
-			padding-left: 30px;
-			box-sizing: border-box;
-			margin-bottom: 5px;
+		.box03{
+			overflow: hidden;
+			line-height:50px;
+			margin-bottom: 40px;
 			border-bottom: 1px solid gray;
-			padding-bottom: 5px;
-			margin-top: 10px;
-			/*background:#eff4fa; */
+			/*margin-top: 10px;*/
 		}
-		a{
+		.box3 a{
+			float: left;
+			margin-left: 35px;
 			text-decoration: none;
-			color: black;
-		}
-		input{
 			color: gray;
 		}
+		.box3 a:hover{
+			color: black;
+		}
+		.box4 a{
+			float: right;
+			margin-right: 35px;
+			text-decoration: none;
+			color: gray;
+		}
+		.box4 a:hover{
+			color: black;
+		}
+		.p1{
+			margin-bottom: 20px;
+			margin-left: 24px;
+		}
 		.input1{
-			font:400 13.3px Arial;
+			width: 282px;
+			color: gray;
+			margin-left:22px;
+			margin-bottom: 15px;
+			font-size: 15px;
 			line-height: 40px;
-			width: 232px;
-			margin-left: 45px;
-			font-size: 20px;
-			margin-top: 20px;
-		}
-		p{
-			margin-left: 45px;
-			margin-top: 25px;
-			font-size: 8px;
-		}
-		.input3{
-			width: 83%;
-			font-size: 25px;
-			margin-bottom: 30px;
-		}
 
+		}
+		.input2{
+			width: 282px;
+			margin-left: 22px;
+			font-size: 25px;
+			color: white;
+			background-color: #6aa2e0;
+			margin-bottom: 40px;
+			border:none;
+		}
+		.input2:hover{
+		background-color: #5a98de;
+		}
+		.input2:active{
+		background-color: #6aa2e0;
+		}
+		.diva{
+			width: 200px;
+			font-size: 5px;
+			float: right;
+		}
+		.diva a{
+			text-decoration: none;
+			color:#317ef3;
+			margin-right: 3px;
+		}
+		footer{
+			width:1300px;
+			height: 50px;
+			margin-top: 10px;
+			line-height: 50px;
+		}
+		.foot1{
+			float: left;
+			margin-top: 30px;
+			margin-left: 300px;
+			font-size: 10px;
+		}
+		.foot2{
+			margin-top: 30px;
+			float: right;
+			margin-right: 250px;
+			color: gray;
+			font-size: 10px;
+		}
+		.foot1 a{
+			color:#317ef3;
+			font-size: 15px;
+			text-decoration: none;
+			margin-left: 10px;
+		}
 	</style>
 </head>
 <body>
@@ -98,26 +154,54 @@
 			<a href="#">企鹅邮箱</a>&nbsp;
 		</div>
 	</nav>
-	<article>
-	<div class="article1">
-		<img src="../src/qqmail1.png" alt="走丢了" title="QQ邮箱">
-	</div>	
-	<div class="article2">
-		<div class="t1">
-		<a href="#">账号密码登陆</a>
+<section>
+	<div class="box0">
+		<div class="box1">
+			<img src="../src/qqmail1.png" alt="">
 		</div>
-		<form action="#">
-			<input type="text" name="text" value="支持QQ邮箱/邮箱/手机号登陆" class="input1">
-			<input type="password" name="text" class="input1">
-			<p>
-				<input type="checkbox" class="input2">
-				下次自动登陆	
+	</div>
+
+	<div class="box2">
+	<div class="box03">
+			<div class="box3"><a href="#">快速登陆</a>
+			</div>
+			<div class="box4">
+			<a href="#">
+				账号密码登陆
+			</a>
+			</div>
+	</div>
+		<div class="box5">
+			<form action="#">
+				<input type="text" name="text" placeholder="支持QQ号/邮箱/手机号" class="input1">
+				<input type="password" name="password" class="input1" placeholder="QQ密码登陆">
+			<p class="p1">
+				<input type="checkbox">下次自动登陆
 			</p>
 			<p>
-				<input type="button" value="登陆" class="input3">
+				<input type="button" value="登&nbsp;陆" class="input2">
 			</p>
-		</form>
-	</div>	
-	</article>
+			<div class="diva">
+				<a href="">忘了密码&nbsp;|</a>
+				<a href="">注册新账号&nbsp;|</a>
+				<a href="">意见反馈&nbsp;|</a>
+			</div>
+			</form>
+		</div>
+	</div>
+<!-- 一个表单标签结束 -->
+</section>
+<footer>
+	<div class="foot1">
+		<a href="#">关于腾讯&nbsp;|</a>
+		<a href="#">服务条款&nbsp;|</a>
+		<a href="#">客服中心&nbsp;|</a>
+		<a href="#">联系我们&nbsp;|</a>
+		<a href="#">帮助中心&nbsp;|</a>
+	</div>
+	<div class="foot2">
+		&copy;1998 - 2018 Tencent Inc. All Rights Reserved.
+	</div>
+</footer>
 </body>
 </html>

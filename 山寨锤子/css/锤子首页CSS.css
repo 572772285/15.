@@ -1,0 +1,205 @@
+		*{
+			box-sizing: border-box;
+		}
+		html{
+			background-color: #ededed;
+		}
+		a{
+			text-decoration: none;
+			color: #b1b1b1;
+		}
+		nav{
+			width: 100%;
+			height: 100px;
+			line-height: 100px;
+			background-color: #040404;
+		}
+		nav div{
+			width: 1226px;
+			height: 100px;
+			margin:0 auto;
+			background-color: #040404;
+		}
+		.navleft li{
+			width: 50px;
+			height: 50px;
+			float: left;
+			background-image: url(../../src/锤子标志_03.gif);
+			background-repeat: no-repeat;
+			margin-top: 25px;
+			margin-left: 50px;
+		}
+		nav li a:hover{
+			color: white;
+		}
+		.navright li{
+			float: right;
+			margin-right: 50px;
+			position: relative;
+		}
+		/* 导航部分*/
+		section{
+			position: relative;
+		}
+		section .b1{
+			width: 1226px;
+			height: 90px;
+			margin: 0px auto;
+			line-height: 90px;
+			background-color:#ededed;
+		}
+		section .b1>li{
+			float: left;
+			width: 100px;
+			height: 90px;
+			text-align: center;
+		}
+		section .b1 li a{
+			color: #666;
+			font-size: 14px;
+		}
+		section .b1 li a:hover{
+			color: blue;
+		}
+		.b1son{
+			width: 1226px;
+			height: 300px;
+			position: absolute;
+			top: 90px;
+			left:50%;
+			margin-left: -613px;
+			opacity: 0;
+			background-color: white;
+			transition: all 1s;
+		}
+		.b1son img{
+			float: left;
+			margin-left: 200px;
+			margin-top: 50px;
+		}
+		.b1 .phone a:hover+.b1son{
+			opacity: 1;
+		}
+		.contentjpg{
+			width: 1226px;
+			margin:0px;
+			margin:0px auto;
+		}
+		.contentjpg img{
+			width: 1226px;
+			height: 500px;
+		}
+		.box1{
+			width: 100%;
+			height: 200px;
+		}
+		.box1 .content1{
+			width: 1226px;
+			height: 200px;
+			margin: 0px auto;
+			border:1px solid #dbdbdb;
+			border-radius: 5px;
+			padding:1px;
+		}
+		.content1 li{
+			float: left;
+			width: 305px;
+			height: 200px;
+		}
+		.content1 li img{
+			width: 306px;
+			height: 200px;
+		}
+		.box1:hover li{
+			opacity: 0.2;
+		}
+		.content1 li:nth-child(1):hover{
+			opacity: 1;
+		}
+		.content1 li:nth-child(2):hover{
+			opacity: 1;
+		}
+		.content1 li:nth-child(3):hover{
+			opacity: 1;
+		}
+		.content1 li:nth-child(4):hover{
+			opacity: 1;
+		}
+		.content2{
+			width: 100%;
+			height: 500px;
+			margin-top: 20px;
+			background-color: red;
+		}
+		.content2 .hot{
+			width: 1226px;
+			height: 100%;
+			background-color:white;
+			margin:0 auto;
+			position: relative;
+		}
+		.content2 .hot1{
+			width: 1226px;
+			height: 60px;
+			background-color: white;
+			position: relative;
+			border:1px solid #dbdbdb;
+		}
+		.content2 .hot1 h5{
+			float: left;
+			margin-left: 30px;
+			line-height: 60px;
+		}
+		.content2 .hot1 ul li{
+			float: right;
+			margin-right: 15px;
+			width: 25px;
+			height: 25px;
+			border:1px solid gray;
+			margin-top: 20px;
+			border-radius:50%;
+			background-color: white;
+			line-height: 25px;
+			box-shadow: 0px 1px 10px 3px gray;
+		}
+		.content2 .hot1 ul span{
+			font-size: 20px;
+			font-weight:bold;
+			margin-left: 5px;
+		}
+		.content2 .hot2{
+			width: 100%;
+			position:absolute;
+			left: 0;
+		}
+		.content2 .hot2 a{
+			display: block;
+			width:306px;
+		}
+		.content2 .hot2 ul>li{
+			float: left;
+			width: 306px;
+			text-align: center;
+			height: 438px;
+			padding-top: 50px;
+		}
+		.content2 .hot2 .hot2son1{
+			position: absolute;
+			top:250px;
+		}
+		.content2 .hot2 .hot2son1 a{
+			font-size: 10px;
+			margin-top: 15px;
+		}
+		.content2 .hot2 .hot2son1 h6{
+			width: 306px;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow:ellipsis;
+		}
+		.content2 .hot .hot2 .hot2son2 li{
+			float: left;
+		}
+		.content2 .hot .hot2 .hot2son2 li:nth-child(1){
+			
+		}

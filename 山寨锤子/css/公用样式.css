@@ -1,0 +1,32 @@
+a{
+	text-decoration: none;
+	color: #b0b0b0;
+	font-size: 12px;
+}
+		li a:hover{
+			color: white;
+		}
+		nav{
+			background-color: #333;
+			width: 100%;
+			height: 40px;
+			line-height: 40px;
+		}
+		.navleft{
+			margin-left: 30px;
+		}
+		.navleft li{
+			float: left;
+		}
+		.navright li,.navright2{
+			float:right;
+		}
+		.navright{
+			margin-right: 30px;
+		}
+		.navright2 li{
+			float: right;
+		}
+		li span{
+			color: #333;
+		}

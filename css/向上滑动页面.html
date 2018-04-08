@@ -2,30 +2,30 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>单网页设计</title>
-	<link rel="stylesheet" href="../src/web-fonts-with-css/css/fontawesome-all.css">
+	<title>向上滑动页面</title>
 	<style>
 		*{
 			margin: 0;
 			padding: 0;
-			box-sizing: border-box;
 		}
 		html{
-			height: 100%;
 			width: 100%;
-			overflow: hidden;
+			height: 100%;
 		}
-		.nav1{
+		body{
 			width: 100%;
 			height: 100%;
+		}
+		ul{
+			width: 100%;
+			height: 100%;
+			overflow: hidden;
 
 		}
-		.section1{
+		.box1{
 			width: 100%;
 			height: 100%;
-		}
-		.section1 div img{
-			transition:all 2s;
+			transition: all 1s;
 		}
 		.nav1 input{
 			z-index: 99;
@@ -62,63 +62,54 @@
 		input:hover+a{
 			background-color: gray;
 		}
-		.section1{
+		.box1{
+			width: 100%;
+			position: relative;
+			top: 34px;
+			height: 100%;
+		}
+		.box2{
+			background-image: url(../src/风景3.jpg);
 			width: 100%;
 			height: 100%;
 		}
-		.box1 img{
+		.box3{
+			background-image: url(../src/241f95cad1c8a78679da7f256d09c93d70cf502c.jpg);
 			width: 100%;
 			height: 100%;
-			background-color: blue;
-			opacity: 0.1;
 		}
-		.box2 img{
+		.box4{
+			background-image: url(../src/nba10.jpg);
 			width: 100%;
 			height: 100%;
-			background-color:pink;
-			opacity: 0.1;
 		}
-		.box3 img{
+		.box5{
+			background-image: url(../src/nba11.jpg);
 			width: 100%;
 			height: 100%;
-			background-color:yellow;
-			opacity: 0.1;
 		}
-		.box4 img{
+		.box6{
+			background-image: url(../src/风景4.jpg);
 			width: 100%;
 			height: 100%;
-			background-color:black;
-			opacity: 0.1;
 		}
-		.box5 img{
-			width: 100%;
-			height: 100%;
-			background-color:gray;
-			opacity: 0.1;
+		.box2,.box3,.box4,.box5,.box6{
+			background-repeat: no-repeat;
 		}
-		.nav1 .input1:checked ~.section1 .box1 img{
-			opacity: 1;
+		.nav1 .input1:checked~.box1{
+			transform: translateY(0%);
 		}
-		.nav1 .input2:checked ~.section1 .box2 img{
-			opacity: 1;
-			position: absolute;
-			top:34px;
+		.nav1 .input2:checked~.box1{
+			transform: translateY(-100%);
 		}
-		.nav1 .input3:checked ~.section1 .box3 img{
-			opacity: 1;
-			position: absolute;
-			top:34px;
+		.nav1 .input3:checked~.box1{
+			transform: translateY(-200%);
 		}
-		.nav1 .input4:checked ~.section1 .box4 img{
-			opacity: 1;
-			position: absolute;
-			top:34px;
-
+		.nav1 .input4:checked~.box1{
+			transform: translateY(-300%);
 		}
-		.nav1 .input5:checked ~.section1 .box5 img{
-			opacity: 1;
-			position: absolute;
-			top:34px;
+		.nav1 .input5:checked~.box1{
+			transform: translateY(-400%);
 		}
 	</style>
 </head>
@@ -134,14 +125,13 @@
 		<a href="#"><i class="fas fa-window-maximize"></i>业务</a>
 		<input type="radio" name="radio" class="input5">
 		<a href="#"><i class="fas fa-handshake"></i>关于我们</a>
-	<div class="section1">
-			<div class="box1"><img src="../src/nba8.jpg" alt=""></div>
-			<div class="box2"><img src="../src/nba9.jpg" alt=""></div>
-			<div class="box3"><img src="../src/nba10.jpg" alt=""></div>
-			<div class="box4"><img src="../src/nba11.jpg" alt=""></div>
-			<div class="box5"><img src="../src/风景3.jpg" alt=""></div>
-	</div>
+		<div class="box1">
+			<div class="box2">1</div>
+			<div class="box3">2</div>
+			<div class="box4">3</div>
+			<div class="box5">4</div>
+			<div class="box6">5</div>
+		</div>
 	</ul>
-
 </body>
 </html>

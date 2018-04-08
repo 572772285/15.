@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>锤子首页</title>
+	<link rel="stylesheet" href="../css1.1/重置代码.css">
+	<link rel="stylesheet" href="../src/web-fonts-with-css/css/fontawesome-all.css">
+	<style>
+		nav{
+			width: 100%;
+			height: 100px;
+			line-height: 100px;
+			background-color: #040404;
+		}
+		nav div{
+			width: 1226px;
+			height: 100px;
+			margin:0 auto;
+			background-color: #040404;
+		}
+		.navleft li{
+			width: 50px;
+			height: 50px;
+			float: left;
+			background-image: url(../src/锤子标志_03.gif);
+			background-repeat: no-repeat;
+			margin-top: 25px;
+			margin-left: 50px;
+		}
+		li a{
+			text-decoration: none;
+			color: #b1b1b1;
+		}
+		li a:hover{
+			color: white;
+		}
+		.navright li{
+			float: right;
+			margin-right: 50px;
+			position: relative;
+		}
+		/* 导航部分*/
+		section .b1{
+			width: 1226px;
+			height: 90px;
+			margin: 0px auto;
+			line-height: 90px;
+			background-color:#ededed;
+		}
+		section{
+			width: 100%;
+			height: 100%;
+			background-color:#ededed;
+			position: relative;
+		}
+		section .b1>li{
+			float: left;
+			width: 100px;
+			height: 90px;
+			text-align: center;
+		}
+		section .b1 li a{
+			color: #666;
+			font-size: 14px;
+		}
+		section .b1 li a:hover{
+			color: blue;
+		}
+		.b1son{
+			width: 1226px;
+			height: 300px;
+			position: absolute;
+			top: 90px;
+			left:50%;
+			margin-left: -613px;
+			opacity: 0;
+			background-color: white;
+			transition: all 1s;
+		}
+		.b1son img{
+			float: left;
+			margin-left: 200px;
+			margin-top: 50px;
+		}
+		.b1 .phone a:hover+.b1son{
+			opacity: 1;
+		}
+		.contentjpg{
+			width: 1226px;
+			margin:0px;
+			margin:0px auto;
+		}
+		.contentjpg img{
+			width: 1226px;
+			height: 500px;
+		}
+		.box1{
+			width: 100%;
+			height: 200px;
+		}
+		.box1 .content1{
+			width: 1220px;
+			height: 200px;
+			margin: 0px auto;
+			border:1px solid gray;
+			border-radius: 5px;
+			padding:1px;
+		}
+		.content1 li{
+			float: left;
+			width: 305px;
+			height: 200px;
+		}
+		.content1 li img{
+			width: 305px;
+			height: 200px;
+		}
+		.box1:hover li{
+			opacity: 0.2;
+		}
+		.content1 li:nth-child(1):hover{
+			opacity: 1;
+		}
+		.content1 li:nth-child(2):hover{
+			opacity: 1;
+		}
+		.content1 li:nth-child(3):hover{
+			opacity: 1;
+		}
+		.content1 li:nth-child(4):hover{
+			opacity: 1;
+		}
+		.content2{
+			width: 100%;
+			height: 491px;
+			/*border:1px solid black;*/
+			margin-top: 20px;
+		}
+		.content2 .box2{
+			width: 1220px;
+			height: 60px;
+			border: 1px solid gray;
+			margin:0px auto;
+			line-height: 60px;
+			padding-left: 30px;
+			box-sizing: border-box;
+			border-radius: 5px 5px;
+			background-color: #fafafa;
+		}
+		.content2 .box2 h5{
+			font-weight: bold;
+			color: gray;
+		}
+	</style>
+</head>
+<body>
+	<nav>
+		<div>
+			<ul class="navleft">
+				<li></li>
+			</ul>
+			<ul class="navright">
+				<li class="b1">
+					<a href="#">
+						<i class="fas fa-cart-plus"></i>
+					</a>
+				</li>
+				<li><a href="#"><i class="fas fa-user"></i></a></li>
+				<li><a href="#">在线商城</a></li>
+				<li><a href="#">坚果Pro2</a></li>
+				<li><a href="#">坚果Pro</a></li>
+				<li><a href="#">Smartisan OS</a></li>
+				<li><a href="#">欢喜云</a></li>
+				<li><a href="#">应用下载</a></li>
+				<li><a href="#">官方论坛</a></li>
+			</ul>
+		</div>
+	</nav>
+	<section>
+		<ul class="b1">
+			<li><a href="#"><b>首页</b></a></li>
+			<li class="phone">
+				<a href="#">手机</a>
+				<ul class="b1son">
+					<li><img src="https://resource.smartisan.com/resource/c71ce2297b362f415f1e74d56d867aed.png?x-oss-process=image/resize,w_160/format,webp" alt=""></li>	
+					<li><img src="https://resource.smartisan.com/resource/b68b71f1f97490fa8694a97057abd813.png?x-oss-process=image/resize,w_160/format,webp" alt=""></li>	
+				</ul>
+			</li>
+			<li><a href="#">“足迹”手感膜</a></li>
+			<li><a href="#">官方配件</a></li>
+			<li><a href="#">空气净化类</a></li>
+			<li><a href="#">品牌周边</a></li>
+			<li><a href="#">全部</a></li>
+			<li><a href="#">服务</a></li>
+			<li><a href="#">企业团购</a></li>
+		</ul>
+		<div class="contentjpg">
+			<img src="https://resource.smartisan.com/resource/f/fbhgb2.png?x-oss-process=image/resize,w_1220/format,webp/quality,Q_100" alt="">
+		</div>
+		<div class="box1">
+			<ul class="content1">
+				<li class="li1">
+					<a href="#">
+						<img src="https://resource.smartisan.com/resource/3/327sixaiobanner.jpg?x-oss-process=image/resize,w_305/quality,Q_100" alt="">
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<img src="https://resource.smartisan.com/resource/4901d0dfa3e97a2199ceae54d251bc1b.png?x-oss-process=image/resize,w_305/quality,Q_100" alt="">
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<img src="https://resource.smartisan.com/resource/c3264f351efad5c9530e2ab9c560bf27.png?x-oss-process=image/resize,w_305/quality,Q_100" alt="">
+					</a>	
+				</li>
+				<li>
+					<a href="#">
+						<img src="https://resource.smartisan.com/resource/f/fanghu323.png?x-oss-process=image/resize,w_305/quality,Q_100" alt="">
+					</a>
+				</li>
+			</ul>
+		</div>
+		<div class="content2">
+			<div class="box2"><h5>热门商品</h5></div>
+			<!-- <div class="box3">
+				<ul>
+					<li>
+						<img src="../src/锤子科技/锤子主页/热门商品/1.webp" alt="">
+					</li>
+					<li><img src="../src/锤子科技/锤子主页/热门商品/2.webp" alt=""></li>
+					<li><img src="../src/锤子科技/锤子主页/热门商品/3.webp" alt=""></li>
+					<li><img src="../src/锤子科技/锤子主页/热门商品/4.webp" alt=""></li>
+				</ul>
+			</div>
+		</div> -->
+	</section>
+</body>
+</html>

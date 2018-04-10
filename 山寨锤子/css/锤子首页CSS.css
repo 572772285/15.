@@ -110,23 +110,16 @@
 			width: 306px;
 			height: 200px;
 		}
-		.box1:hover li{
-			/*opacity: 0.2;*/
-		}
 		.content1 li:nth-child(1):hover{
-			opacity: 1;
 			box-shadow:1px 1px 30px rgba(0,0,0,0.2);
 		}
 		.content1 li:nth-child(2):hover{
-			opacity: 1;
 			box-shadow:1px 1px 30px rgba(0,0,0,0.2);
 		}
 		.content1 li:nth-child(3):hover{
-			opacity: 1;
 			box-shadow:1px 1px 30px rgba(0,0,0,0.2);
 		}
 		.content1 li:nth-child(4):hover{
-			opacity: 1;
 			box-shadow:1px 1px 30px rgba(0,0,0,0.2);
 		}
 		.content2{
@@ -364,4 +357,36 @@
 		.footerright ul li:nth-child(3) a i{
 			vertical-align: top;
 			margin-top: 11px;
+		}
+		.end{
+			width: 100%;
+			background-color: white;
+			border-top: 1px solid #dbdbdb;
+		}
+		.end .endcontent{
+			width: 1225px;
+			height: 120px;
+			margin:0 auto;
+			background-color: white;
+		}
+		.end .endcontent .endleft{
+			width: 1100px;
+			float: left;
+			line-height: 120px;
+			font-size: 12px;
+			color: #758aba;
+		}
+		.end .endcontent .endleft a{
+			color: #76bbee;
+		}
+		.end .endcontent .endleft span{
+			margin-right: 20px;
+		}
+		.end .endcontent .endright{
+			width: 125px;
+			float: right;
+		}
+		.end .endcontent .endright select{
+			border:none;
+			font-size: 15px;
 		}

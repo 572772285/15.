@@ -8,6 +8,9 @@
 	height: 0px;
 	visibility: hidden;
 }
+body{
+	background-color: #f5f5f5;
+}
 a{
 	color: #b0b0b0;
 	text-decoration: none;
@@ -281,14 +284,14 @@ section .hot .hot1 .hotimg li ul:hover{
 	margin-left: 0px;
 }
 
-.flash0 .mibuy li:nth-child(1){
+.mibuy li:nth-child(1){
 	float: left;
 	font-size: 22px;
 }
-.flash0 .mibuy li:nth-child(2){
+.mibuy li:nth-child(2){
 	float: right;
 }
-.flash0 .mibuy li:nth-child(2) span{
+.mibuy li:nth-child(2) span{
 	float: left;
 	width: 35px;
 	height: 22px;
@@ -297,89 +300,105 @@ section .hot .hot1 .hotimg li ul:hover{
 	line-height: 22px;
 	text-align: center;
 }
-.flash0 .mibuy {
+ .mibuy {
 	width: 1100px;
 	height: 100%;
 	margin:0 auto;
 }
-.flash0 .left{
+.bottom .left{
 	float: left;
 	width: 220px;
 	height: 320px;
 	background-color: #f1eded;
 	text-align: center;
 }
-.flash0 .left li:nth-child(1){
+.bottom .left li:nth-child(1){
 	color: #e53934;
 	font-size: 20px;
-	margin-top: 60px;
+	padding-top: 60px;
 	margin-bottom: 20px;
 }
-.flash0 .left li:nth-child(3){
+.bottom .left li:nth-child(3){
  	font-size: 14px;
  	color: #6f6d6d;
  	margin-top: 30px;
  	margin-bottom: 30px;
 }
-.flash0 .left li:nth-child(4){
+.bottom .left li:nth-child(4){
 	font-size: 25px;
 }
-.flash0 .left li:nth-child(4) .time{
+.bottom .left li:nth-child(4) .time{
 	background-color: #605751;
 	color: #fff;
 }
-.flash0 .right{
+.bottom .right{
 	float: right;
 	width: 880px;
+	background-color: #f5f5f5;
 }
-.flash0 .right a li{
+.bottom .right a{
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+.bottom .right a{
+	display: block;
+	width: 210px;
+	height: 340px;
+	float: left;
+}
+.bottom .right a li{
 	float: left;
 	width: 210px;
 	margin-left: 10px;
 	background-color: #fafafa;
 	text-align: center;
+	margin-bottom: 10px;
+	box-sizing: border-box;
 }
-.flash0 .right a li img{
+.bottom .right a li img{
 	margin-top: 50px;
 }
-.flash0 .right a:nth-child(1)>li{
+.bottom .right a:nth-child(1)>li{
 	border-top: 1px solid #ff6700;
 }
-.flash0 .right a:nth-child(2)>li{
+.bottom .right a:nth-child(2)>li{
 	border-top: 1px solid #ffac13;
 }
-.flash0 .right a:nth-child(3)>li{
+.bottom .right a:nth-child(3)>li{
 	border-top: 1px solid #2196f3;
 }
-.flash0 .right a:nth-child(4)>li{
+.bottom .right a:nth-child(4)>li{
 	border-top: 1px solid #e53934;
 }
-.flash0 div .bottom{
+ div .bottom{
 	width: 1100px;
 	margin: 0 auto;
 }
-.flash0 div .bottom .right li{
-	position: relative;
-}
-.flash0 div .bottom .right li ul{
+ div .bottom .right li ul{
 	height: 100px;
-	position: absolute;
-	top: 230px;
 	text-align: center;
+	margin-top: 40px;
 }
-.flash0 div .bottom .right li ul li:nth-child(1){
+div .bottom .right li ul li{
+	width: 167px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: clip;
+}
+ div .bottom .right li ul li:nth-child(1){
 	color: #202020;
 	font-size: 14px;
 }
-.flash0 div .bottom .right li ul li:nth-child(2){
+ div .bottom .right li ul li:nth-child(2){
 	font-size:12px;
 	margin-top: 5px;
 }
-.flash0 div .bottom .right li ul li:nth-child(3){
+ div .bottom .right li ul li:nth-child(3){
 	font-size: 14px;
 	margin-top: 10px;
 }
-.flash0 div .bottom .right li ul li:nth-child(3) .span1{
+ div .bottom .right li ul li:nth-child(3) .span1{
 	color: #ff6700;
 	margin-right: 7px;
 }
@@ -392,8 +411,165 @@ section .hot .hot1 .hotimg li ul:hover{
 	width: 1100px;
 	height: 110px;
 }
-.phone{
+.phone .mibuy .phonespan span{
+	float: left;
+	width: 70px;
+	height: 22px;
+	border: none;
+	font-size: 15px;
+	line-height: 22px;
+	text-align: center;
+	color: black;
+}
+.phone .mibuy .phonespan a:nth-child(2) span{
+	width: 22px;
+	font-size: 20px;
+	border:1px solid #b0b0b0;
+	border-radius: 50%;
+	color:#fff;
+	background-color: #b0b0b0;
+	padding-left: 2px;
+}
+.phone .bottom .left{
+	width: 220px;
+	height: 680px;
+}
+.phone .bottom .left li,.phone .bottom .left li img {
+	width: 220px;
+	height: 678px;
+	padding-top: 0px;
+	margin-bottom: 10px;
+}
+.phone .bottom .left li,.phone .bottom .right{
+	margin-bottom: 20px;
+}
+.phoneson{
+	float: right;
+	margin-top: 150px;
+	position: relative;
+	left: -130px;
+}
+.phoneson ul a {
+	float: left;
+	width: 210px;
+	margin-left: 10px;
+	background-color: #fafafa;
+	text-align: center;
+}
+.elc .elcbox{
 	width: 1100px;
-	height: 200px;
-	background-color: red;
+	margin:0 auto;
+	background-color: #f5f5f5;
+}
+.elctop ul:nth-child(1),.elctop ul:nth-child(2) li{
+	float: left;
+}
+.elctop ul:nth-child(1) h6{
+	font-size: 22px;
+}
+.elctop{
+	height: 58px;
+	line-height: 58px;
+}
+.elctop ul:nth-child(2){
+	float: right;
+}
+.elctop ul:nth-child(2) li a{
+	margin-left: 15px;
+	color: black;
+}
+.elctop ul:nth-child(2) li a:hover{
+	color: #ff6700;
+}
+.elc .elcmiddle{
+	height: 300px;
+}
+.elcmiddle-L{
+	width: 210px;
+	float: left;
+}
+ .elcmiddle-L li{
+	transition: all 0.3s;
+}
+ .elcmiddle-L img{
+	height: 300px;
+}
+ .elcmiddle-R{
+	float: right;
+}
+ .elcmiddle-R a{
+	float: left;
+	margin-left: 10px;
+}
+.elc .elcmiddle ul li{
+	width: 210px;
+	height: 300px;
+}
+.elc .elcmiddle ul li img{
+	width: 210px;
+}
+ .elcmiddle-R li div{
+	width: 210px;
+	height: 90px;
+	text-align: center;
+}
+ .elcmiddle-R li .disc p{
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: clip;
+}
+.elcmiddle-R li .disc p:nth-child(1){
+	color: black;
+}
+ .elcmiddle-R li .disc p:nth-child(2){
+	font-size: 10px;
+	margin-top: 5px;
+}
+ .elcmiddle-R li .disc p:nth-child(3){
+	margin-top: 10px;
+	color: #fa6700;
+}
+ .elcmiddle-R li{
+	position: relative;
+	transition: all 0.3s;
+}
+ .elcmiddle-R li .comment{
+	height: 0px;
+	position: absolute;
+	bottom: 0;
+	text-align: center;
+	background-color: #fa6700;
+	color: #fff;
+	font-size: 12px;
+	opacity: 0;
+	transition: all 0.3s;
+	overflow: hidden;
+}
+ .elcmiddle-R li .comment p{
+	margin-top: 18px;
+}
+ .elcmiddle-R li .comment p:nth-child(2){
+	margin-top: 10px;
+	color: #ffb380;
+}
+ .elcmiddle-R li:hover,
+ .elcmiddle-L li:hover
+{
+	box-shadow: 0 0 30px rgba(0,0,0,0.3);
+	transform: translateY(-5px);
+}
+ .elcmiddle-R li:hover .comment{
+	opacity: 1;
+	height: 80px;
+}
+.elc .elcbottom ul li{
+	width: 210px;
+	height: 300px;
+}
+.elc .elcbottom ul li img{
+	width: 210px;
+}
+.elc .elcbottom{
+	margin-top: 20px;
+	margin-bottom: 20px;
 }

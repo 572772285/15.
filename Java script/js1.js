@@ -8,8 +8,12 @@
 			window.onload = function(){
 			
 			document.getElementById('box').onclick= function(){
-				document.getElementById('box1').style.background='blue';
+				document.getElementById('box').style.background='blue';
 				alert(123);
+			}
+			document.getElementById('box1').onclick = function(){
+				document.getElementById('box1').style.backgroundColor = 'pink';
+				alert('刘若阳');
 			}
 		}
 		

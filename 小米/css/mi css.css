@@ -581,11 +581,84 @@ div .bottom .right li ul li{
 .foottop ul{
 	width:1100px;
 	height: 80px;
-	background-color: red;
 	margin:0 auto;
 	line-height: 80px;
 }
 .foottop ul li{
 	float: left;
+	margin-right: 41px;
+	text-align: center;
+	font-size: 16px;
+}
+.foottop ul a{
+	color: #616161;
+}
+.foottop ul a:hover{
+	color: #fa6700;
+}
+.foottop ul li i{
+	font-size: 25px;
 	margin-right: 10px;
+}
+.foottop ul li:nth-child(1){
+	margin-left: 40px;
+}
+.foot{
+	width: 1100px;
+	height: 192px;
+	border-top: 1px solid #e0e0e0;
+	margin:0 auto;
+	padding-top: 30px;
+}
+.foot .dl dl{
+	float: left;
+	margin-right: 80px;
+}
+.foot .dl dl dt{
+	margin-bottom: 20px;
+	font-size: 14px;
+	color: #424242;
+}
+.foot .dl dl dd{
+	font-size: 12px;
+	color: #757575;
+	margin-bottom: 15px;
+}
+.foot .dl dl dd:hover{
+	color: #fa6700;
+}
+.foot .footright{
+	float: right;	
+	width: 20%;
+	text-align: center;
+}
+.foot .footright>span{
+	color: #fa6700;
+	font-size: 22px;
+}
+.foot .footright>p{
+	font-size: 12px;
+	color:#616161;
+	margin-top: 10px;
+}
+.foot .footright>a{
+	display: block;
+	border:1px solid #fa6700;
+	width: 150px;
+	height: 30px;
+	margin:0 auto;
+	line-height: 30px;
+	text-align:center;
+	transition: all 0.5s;
+	margin-top: 10px;
+}
+.foot .footright>a:hover{
+	background-color: #fa6700;
+}
+.foot .footright>a:hover i,.foot .footright>a:hover span{
+	color:#fff;
+}
+.foot .footright>a i,.foot .footright>a span{
+	font-size: 12px;
+	color: #fa6700;
 }

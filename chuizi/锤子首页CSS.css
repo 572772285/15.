@@ -1,6 +1,4 @@
-		*{
-			box-sizing: border-box;
-		}
+
 		html{
 			background-color: #ededed;
 		}
@@ -19,6 +17,16 @@
 			height: 100px;
 			margin:0 auto;
 			background-color: #040404;
+		}
+		*{
+			box-sizing: border-box;
+		}
+		.clearfix:after{
+			content: '';
+			clear: both;
+			height: 0px;
+			display:block;
+			visibility: hidden;
 		}
 		.navleft li{
 			width: 50px;
@@ -304,6 +312,90 @@
 		}
 		.content2 .hot2 ul:hover .hotbottom span:nth-child(1){
 			opacity: 0;
+		}
+		.selected .top{
+			width: 1224px;
+			height: 60px;
+			line-height: 60px;
+			background-color: #fff;
+			margin:0 auto;
+			border:1px solid #dbdbdb;
+			border-radius: 5px 5px;
+			margin-top: 20px;
+		}
+		.selected .top h5{
+			font-size: 100%;
+			font-weight: 400;
+			color: gray;
+			margin-left: 30px;
+
+		}
+		.selected{
+			height: 940px;
+			margin-bottom: 30px;
+		}
+		.selected .bottom{
+			width: 1220px;
+			height: 860px;
+			margin:0 auto;		}
+		.selected .bottom a{
+			display: block;
+			float: left;
+			width: 305px;
+			height: 429px;
+			background-color: #fff;
+			border-right: 1px solid #ccc;
+			border-bottom:1px solid #ccc;
+			transition: all 0.3s;
+		}	
+		.selected .bottom a:hover{
+			transform: translateZ(10px);
+			box-shadow: 0 0 8px inset;
+		}	
+		.selected .bottom a:nth-child(1){
+			width: 610px;
+			height: 429px;
+			background-color: #f3f3f3;
+		}
+		.selected .bottom a:nth-child(1) img{
+			margin-left: 10px;
+			margin-top: 10px;
+		}
+		.selected .bottom a:nth-child(1),.selected .bottom a:nth-child(4){
+			border-left: 1px solid #ccc;
+		}
+		.selected .bottom  a .btjpg li:nth-child(2) .listnone{
+			display:inline-block;
+			width:13px;
+			height: 13px;
+			border:3px solid gray;
+			border-radius: 50%;
+			/*background-color: black;*/
+			margin:10px auto;
+			margin-bottom: 10px;
+		}
+		.selected .bottom  a .btjpg li:nth-child(2) span:nth-child(1){
+			font-size: 14px;
+			color: black;
+			font-weight: bold;
+			margin-bottom: 10px;
+		}
+		.selected .bottom  a .btjpg li:nth-child(2) p:first-of-type{
+			font-size: 12px;
+			margin-top: 10px;
+		}
+		.selected .bottom  a .btjpg li:nth-child(2) span:last-of-type{
+			font-weight: bold;
+			color: #d44d44;
+			display: block;
+
+		}
+		.selected .bottom  a .btjpg li:nth-child(2) .listnone:hover{
+			background-color: black;
+		}
+		.selected .bottom .btjpg li{
+			text-align: center;
+			margin-top: 50px;
 		}
 		footer{
 			width: 100%;

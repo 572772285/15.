@@ -7,11 +7,13 @@
 		window.onload=function(){
 			var oTxt=document.getElementById('txt')
 			var oBtn=document.getElementById('btn')
-			var oUl1=document.getElementById('Ul1');
+			var oUl1=document.getElementById('ul1');
 			var oLi=document.getElementsByTagName('li')
-			oBtn.onclick=function(){
+			oBtn.onclick=function(){	
 				for(var i=0;i<oLi.length;i++){
-					if(oLi[i].innerHTML==oTxt.value){
+					var sTxt=(oTxt.value).toLowerCase();
+					var sLi=(oLi[i].innerHTML).toLowerCase();
+					if(sLi.search(sTxt) !=-1){
 						oLi[i].style.background='red'
 					}else{
 						oLi[i].style.background=''

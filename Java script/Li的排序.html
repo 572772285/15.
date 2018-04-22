@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Li的排序</title>
+	<script>
+		window.onload=function(){
+			var oBtn=document.getElementById('btn');
+			var oUl=document.getElementById('ul1');
+			var oLi=oUl.children;
+			oBtn.onclick=function(){
+				var arr=[];
+				for(var i=0;i<oLi.length;i++){
+					arr.push(oLi[i].innerHTML)
+				}
+				arr.sort(function(oLi1,oLi2){
+					return oLi1-oLi2
+				})
+				// console.log(arr);
+				for(var j=0;j<arr.length;j++){
+					// oUl.appendChild(arr[j])	
+					alert(arr[j])
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<input type="button" id="btn" value="排序">
+	<ul id="ul1">
+		<li>12</li>
+		<li>122</li>
+		<li>585</li>
+		<li>23</li>
+		<li>54</li>
+		<li>52</li>
+		<li>28</li>
+		<li>9</li>
+		<li>6</li>
+	</ul>
+</body>
+</html>

@@ -11,16 +11,19 @@
 			oBtn.onclick=function(){
 				var arr=[];
 				for(var i=0;i<oLi.length;i++){
-					arr.push(oLi[i].innerHTML)
+					arr.push(oLi[i])
 				}
+				// oLi是一个集合而不是数组，把oli的集合放在空数组里。
 				arr.sort(function(oLi1,oLi2){
-					return oLi1-oLi2
+					var n1=oLi1.innerHTML
+					var n2=oLi2.innerHTML;
+					return n1-n2
 				})
-				// console.log(arr);
+				// 把新定义的oli数组里的innerHTML排序
 				for(var j=0;j<arr.length;j++){
-					// oUl.appendChild(arr[j])	
-					alert(arr[j])
+					oUl.appendChild(arr[j])
 				}
+				// 把排好序的每一个arr[j]全部添加到ul里，因为添加会先删除再添加。
 			}
 		}
 	</script>

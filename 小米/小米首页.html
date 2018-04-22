@@ -6,6 +6,25 @@
 	<link rel="stylesheet" href="../css1.1/重置代码.css">
 	<link rel="stylesheet" href="../小米/css/mi css.css">
 	<link rel="stylesheet" href="../src/web-fonts-with-css/css/fontawesome-all.min.css">
+	<script>
+		window.onload=function(){
+			var oImgbox=document.getElementById('imgbox');
+			var oAnniuL=document.getElementById('anniuL');
+			var oAnniuR=document.getElementById('anniuR');
+			var oLibox=document.getElementById('libox');
+			var oImg=imgbox.getElementsByTagName('img');
+			var oUl=oLibox.getElementsByTagName('ul');
+			oAnniuR.onclick=function(){
+				var now =0;
+				for(var i=0;i<oImg.length;i++){
+					oImg[i].style.zIndex=0;
+					// oUl[i].className='';
+				}
+				now++;
+				oImg[i].style.zIndex=30;
+			}
+		}
+	</script>
 </head>
 <body>
 	<nav>
@@ -120,15 +139,15 @@
 						</a>
 					</li>
 				</ul>
-				<ul class="hotimg">
-					<span><a href="#">&lt;</a></span>
-					<span><a href="#">&gt;</a></span>
+				<ul class="hotimg" id="imgbox">
+					<span id="anniuL"><a href="#">&lt;</a></span>
+					<span id="anniuR"><a href="#">&gt;</a></span>
 					<img src="../小米/hot.png" alt="">
 					<img src="../小米/hot2.png" alt="">
 					<img src="../小米/hot3.png" alt="">
 					<img src="../小米/hot4.png" alt="">
 					<img src="../小米/hot5.png" alt="">
-					<li>
+					<li id="libox">
 						<a href="#"><ul></ul></a>
 						<a href="#"><ul></ul></a>
 						<a href="#"><ul></ul></a>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>动画基础</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 200px;
+			height: 200px;
+			background-color: red;
+			position: absolute;
+			top:50px;
+			left: 0;
+		}
+		input{
+			width: 100px;
+		}
+	</style>
+	<script>
+		window.onload=function(){
+			var oBtn=document.getElementById('btn')
+			var oBox=document.getElementById('box');
+			var timer=null;
+			oBtn.onclick=function(){
+				setInterva(function(){
+					oBox.offsetLeft
+				},30)
+			}
+		}
+	</script>
+</head>
+<body>
+	<input type="button" value="开始" id="btn">
+	<div id="box"></div>
+</body>
+</html>

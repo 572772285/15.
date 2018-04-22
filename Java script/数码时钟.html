@@ -17,23 +17,38 @@
 	</style>
 	<script>
 		window.onload=function(){
-			function timer(n){
-				if(n<9){
+			function toStr(n){
+				if(n<=9){
 					return '0'+n
 				}else{
 					return ''+n
 				}
 			}
+			toStr();
+			// 转换时、分、秒的格式
 			var oBox=document.getElementById('box');
 			var oImg=oBox.getElementsByTagName('img');
-			var now=new Date();
-			var h=now.getHours();
-			var m=now.getMinutes();
-			var s=now.getSeconds();
-			var time=timer(h)+timer(m)+timer(s)
-			for(var i=0;i<oImg.length;i++){
-				oImg[i].src
+			// 定义一个时间函数
+			function shijian(){
+				var now=new Date();
+				var h=now.getHours();
+				var m=now.getMinutes();
+				var s=now.getSeconds();
+				var timer=toStr(h)+toStr(m)+toStr(s)
+				// 获取系统时间对象、时、分、秒然后把系统时间转化为字符串
+				for(var i=0;i<oImg.length;i++){
+					oImg[i].src='../'+'src/'+timer.charAt(i)+'.png'
+				}
+				// 让系统时间字符串中的【i】和图片【i】匹配
 			}
+			setInterval(shijian,1000);
+			shijian();
+			// oImg[0].src='../'+'src/'+timer.charAt(0)+'.png'
+			// oImg[1].src='../'+'src/'+timer.charAt(1)+'.png'
+			// oImg[2].src='../'+'src/'+timer.charAt(2)+'.png'
+			// oImg[3].src='../'+'src/'+timer.charAt(3)+'.png'
+			// oImg[4].src='../'+'src/'+timer.charAt(4)+'.png'
+			// oImg[5].src='../'+'src/'+timer.charAt(5)+'.png'
 		}
 	</script>
 </head>

@@ -26,9 +26,15 @@
 			var oBox=document.getElementById('box');
 			var timer=null;
 			oBtn.onclick=function(){
-				setInterva(function(){
-					oBox.offsetLeft
+				clearInterval(timer);				
+				timer=setInterval(function(){
+					if(oBox.offsetLeft>=300){
+					clearInterval(timer);
+				}else{
+					oBox.style.left=oBox.offsetLeft+10+'px'
+				}	
 				},30)
+				
 			}
 		}
 	</script>

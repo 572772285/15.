@@ -79,6 +79,7 @@
 			var oListbox=document.getElementById('listbox');
 			var oLi2=oListbox.children;
 			var bian=0;
+			timer=null;
 			function yiyang(){
 				for(var i=0;i<oLi1.length;i++){
 					oLi1[i].style.zIndex=0;
@@ -106,11 +107,37 @@
 			for(var j=0;j<oLi2.length;j++){
 				oLi2[j].index=j;
 				oLi2[j].onclick=function(){
-					bian=this.index
-					yiyang();
+					bian=this.index;
+					for(var i=0;i<oLi1.length;i++){
+					oLi1[i].style.zIndex=0;
+				}
+				for(var i=0;i<oLi2.length;i++){
+					oLi2[i].className='';
+				}
+				oLi1[bian].style.zIndex=979;
+				oLi2[bian].className='listcolor';
+					// yiyang();
 				}
 			}
-
+			timer=setInterval(function(){
+				bian++;
+				if(bian>=oLi1.length){
+					bian=0;
+				}
+				yiyang();
+			},1000)
+			oBox.onmouseover=function(){
+				clearInterval(timer);
+			}
+			oBox.onmouseout=function(){
+				timer=setInterval(function(){
+					bian++;
+					if(bian>=oLi1.length){
+						bian=0;
+					}
+					yiyang();
+				},1000)
+			}
 		}
 	</script>
 </head>

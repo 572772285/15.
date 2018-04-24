@@ -2,22 +2,24 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>动画基础</title>
+	<title>中部固定广告</title>
 	<style>
+	body{
+		height: 2888px;
+	}
 		*{
 			margin: 0;
 			padding: 0;
 		}
-		div{
-			width: 200px;
-			height: 200px;
-			background-color: red;
-			position: absolute;
-			top:50px;
-			left: 600px;
-		}
-		input{
+		#div{
 			width: 100px;
+			height: 100px;
+			background-color: gold;
+			position: absolute;
+			top: 0px;
+			text-align: center;
+			line-height: 100px;
+			display: none;
 		}
 	</style>
 	<script>
@@ -36,9 +38,9 @@
 						curr=curr*100;
 					}
 					if(curr<value){
-						sPeed=10;
+						sPeed=60;
 					}else{
-						sPeed=-10;
+						sPeed=-60;
 					}
 					if(Math.abs(value-curr)<Math.abs(sPeed)){
 						
@@ -57,28 +59,17 @@
 					console.log(obj.style[attr])	
 				},30)
 			}
-		window.onload=function(){
-			var oBtn=document.getElementById('btn')
-			var oBox=document.getElementById('box');
-			var timer=null;
-			oBtn.onclick=function(){
-				animation(oBox,'left','0')
-				// var speed
-				// clearInterval(timer);				
-				// timer=setInterval(function(){
-				// 	if(oBox.offsetLeft>=300){
-				// 	clearInterval(timer);
-				// }else{
-				// 	oBox.style.left=oBox.offsetLeft+10+'px'
-				// }	
-				// },30)
-				
-			}
+		window.onresize=window.onscroll=window.onload=function(){
+			var oDiv=document.getElementById('div');
+			var iHeight=window.innerHeight;
+			/*可视区域的值*/
+			var iTop=document.body.scrollTop||document.documentElement.scrollTop;
+			var iTarget=(iHeight)/2+iTop-(oDiv.offsetHeight)/2;
+			animation(oDiv,'top',iTarget)
 		}
 	</script>
 </head>
 <body>
-	<input type="button" value="开始" id="btn">
-	<div id="box"></div>
+	<div id="div">我是广告</div>
 </body>
 </html>

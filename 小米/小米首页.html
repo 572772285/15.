@@ -7,23 +7,115 @@
 	<link rel="stylesheet" href="../小米/css/mi css.css">
 	<link rel="stylesheet" href="../src/web-fonts-with-css/css/fontawesome-all.min.css">
 	<script>
-		window.onload=function(){
-			var oImgbox=document.getElementById('imgbox');
-			var oAnniuL=document.getElementById('anniuL');
-			var oAnniuR=document.getElementById('anniuR');
-			var oLibox=document.getElementById('libox');
-			var oImg=imgbox.getElementsByTagName('img');
-			var oUl=oLibox.getElementsByTagName('ul');
-			oAnniuR.onclick=function(){
-				var now =0;
+		var timer=null;
+			function animation(obj,attr,value){
+				/*obj表示对象，attr表示什么属性，value表示目标值*/
+				var Speed=0;
+				/*定义一个速度*/
+				clearInterval(obj.timer);
+				/*先清除定时器*/
+				obj.timer=setInterval(function(){
+					var curr=parseFloat(getComputedStyle(obj,false)[attr]);
+					console.log(curr)
+					/*定义一个curr的变量表示当前对象的属性值*/
+					if(attr=='opacity'){
+						curr=curr*100;
+					}
+					if(curr<value){
+						sPeed=200;
+					}else{
+						sPeed=-200;
+					}
+					if(Math.abs(value-curr)<Math.abs(sPeed)){
+						
+						clearInterval(obj.timer);
+						if(attr=='opacity'){
+							obj.style[attr]=value/100;
+						}
+							obj.style[attr]=value+'px';
+					}else{
+						if(attr=='opacity'){
+							obj.style[attr]=(curr+sPeed)/100;
+						}
+							obj.style[attr]=curr+sPeed+'px';
+						
+					}
+					console.log(obj.style[attr])	
+				},30)
+			}
+			window.onscroll=window.onresize=window.onload=function(){
+				var oHead0=document.getElementById('head0');
+				var iTop=document.body.scrollTop||document.documentElement.scrollTop;
+				var iHeight=window.innerHeight;
+				var iTarget=iTop;
+				animation(oHead0,'top',iTarget);
+				if(iTop>140){
+					oHead0.style.display='block'
+				}else{
+					oHead0.style.display='none'
+				}
+			}
+			window.onload=function(){
+				var oImgbox=document.getElementById('imgbox');
+				var oImg=oImgbox.getElementsByTagName('img');
+				var oAnniuL=document.getElementById('anniuL');
+				var oAnniuR=document.getElementById('anniuR');
+				var oLibox=document.getElementById('libox');
+				var oUl=oLibox.getElementsByTagName('ul');
+				var bian=0;
+			timer=null;
+			function yiyang(){
 				for(var i=0;i<oImg.length;i++){
 					oImg[i].style.zIndex=0;
-					// oUl[i].className='';
 				}
-				now++;
-				oImg[i].style.zIndex=30;
+				for(var i=0;i<oUl.length;i++){
+					oUl[i].className='';
+				}
+				oImg[bian].style.zIndex=979;
+				oUl[bian].className='listnone';
 			}
-		}
+			oAnniuR.onclick=function(){		
+				bian++;
+				if(bian>=oImg.length){
+					bian=0;
+				}
+				yiyang();
+			}
+			oAnniuL.onclick=function(){
+				bian--;
+				if(bian<0){
+					bian=oImg.length-1;
+				}
+				yiyang();
+			}
+			for(var j=0;j<oUl.length;j++){
+				oUl[j].index=j;
+				/*当循环过后j的值会变成4所以要先把j存起来*/				
+				oUl[j].onclick=function(){
+					bian=this.index;
+					yiyang();
+				}
+			}
+			timer=setInterval(function(){
+				bian++;
+				if(bian>=oImg.length){
+					bian=0;
+				}
+				yiyang();
+			},5000)
+			oBox.onmouseover=function(){
+				clearInterval(timer);
+			}
+			oBox.onmouseout=function(){
+				timer=setInterval(function(){
+					bian++;
+					if(bian>=oImg.length){
+						bian=0;
+					}
+					yiyang();
+				},5000)
+			}
+			}
 	</script>
 </head>
 <body>
@@ -55,6 +147,34 @@
 	<!-- nav -->
 	<!-- head -->
 	<div class="head0">
+		<div class="head1">
+			<div class="headleft">
+				<ul>
+					<li><a href="#"><img src="../小米/log.png" alt=""></a></li>
+					<li><a href="#">小米手机</a></li>
+					<li><a href="#">红米</a></li>
+					<li><a href="#">电视</a></li>
+					<li><a href="#">笔记本</a></li>
+					<li><a href="#">盒子</a></li>
+					<li><a href="#">新品</a></li>
+					<li><a href="#">路由器</a></li>
+					<li><a href="#">智能硬件</a></li>
+					<li><a href="#">服务</a></li>
+					<li><a href="#">社区</a></li>
+				</ul>
+			</div>
+			<!-- headleft -->
+			<div class="headright">
+				<ul>
+					<a href="#"><i class="fas fa-search"></i></a>	
+				</ul>
+				<ul class="input">
+					<li><input type="text"></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+		<div class="head0" id="head0" style="display: none;">
 		<div class="head1">
 			<div class="headleft">
 				<ul>
@@ -140,18 +260,19 @@
 					</li>
 				</ul>
 				<ul class="hotimg" id="imgbox">
-					<span id="anniuL"><a href="#">&lt;</a></span>
-					<span id="anniuR"><a href="#">&gt;</a></span>
+					<span id="anniuL">&lt;</span>
+					<span id="anniuR">&gt;</span>
 					<img src="../小米/hot.png" alt="">
 					<img src="../小米/hot2.png" alt="">
 					<img src="../小米/hot3.png" alt="">
 					<img src="../小米/hot4.png" alt="">
 					<img src="../小米/hot5.png" alt="">
 					<li id="libox">
-						<a href="#"><ul></ul></a>
-						<a href="#"><ul></ul></a>
-						<a href="#"><ul></ul></a>
-						<a href="#"><ul></ul></a>
+						<ul class="listnone"></ul>
+						<ul></ul>
+						<ul></ul>
+						<ul></ul>
+						<ul></ul>
 					</li>
 				</ul>
 			</div>

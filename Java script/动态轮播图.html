@@ -106,17 +106,10 @@
 			}
 			for(var j=0;j<oLi2.length;j++){
 				oLi2[j].index=j;
+				/*当循环过后j的值会变成4所以要先把j存起来*/				
 				oLi2[j].onclick=function(){
 					bian=this.index;
-					for(var i=0;i<oLi1.length;i++){
-					oLi1[i].style.zIndex=0;
-				}
-				for(var i=0;i<oLi2.length;i++){
-					oLi2[i].className='';
-				}
-				oLi1[bian].style.zIndex=979;
-				oLi2[bian].className='listcolor';
-					// yiyang();
+					yiyang();
 				}
 			}
 			timer=setInterval(function(){

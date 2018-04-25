@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>减速运动</title>
+	<title>减速动画和匀速动画</title>
 	<style>
 		*{
 			margin: 0;
@@ -33,8 +33,9 @@
 	</style>
 	<script>
 		var timer=null;
-		function animation(obj,attr,value){
-			var ispeed=0;
+		function animation(obj,attr,value,isLinear){
+			var isPeed=0;
+			var isStop=false;
 			clearInterval(obj.timer);
 			obj.timer=setInterval(function(){
 					var curr=parseFloat(getComputedStyle(obj,false)[attr]);					
@@ -42,22 +43,43 @@
 						curr=Math.round(curr*100)
 						/*四舍五入*/
 					}
-					var	ispeed=(value-curr)/10;
-					ispeed=ispeed>0?Math.ceil(ispeed):Math.floor(ispeed);
+					if(isLinear){
+						if(curr<value){
+							isPeed=10;
+						}else{
+							isPeed=-10;
+						}
+						if(Math.abs(value-curr)<Math.abs(isPeed)){
+							isStop=true;
+						}
+					}else{
+						isPeed=(value-curr)/10;
+						isPeed=isPeed>0?Math.ceil(isPeed):Math.floor(isPeed);
+						if(!isPeed){
+							isStop=true;
+						}
+					}
 					/*向上取整和向下取整*/
-					if(!ispeed){
+					if(isStop){
 						clearInterval(obj.timer);
+						if(isLinear){
+							if(attr=='opacity'){
+								obj.style[attr]=value/100;
+							}else{
+								obj.style[attr]=value+'px';
+							}
+						}
 					}else{
 						if(attr=='opacity'){
-							obj.style[attr]=(curr+ispeed)/100;
+							obj.style[attr]=(curr+isPeed)/100;
 						}else{
-							obj.style[attr]=curr+ispeed+'px'
+							obj.style[attr]=curr+isPeed+'px'
 						}
-						console.log(ispeed)
+						console.log(isPeed)
 					}
 				},30)
 		}
-		window.onload=function(){
+			window.onload=function(){
 			var oBox1=document.getElementById('box1');
 			var oBox2=document.getElementById('box2');
 			var oBox3=document.getElementById('box3');
@@ -65,28 +87,28 @@
 			var oBtn=document.getElementById('btn');
 			var oBtn1=document.getElementById('btn1');
 			oBtn1.onclick=function(){
-				animation(oBox1,'top','500')
+				animation(oBox1,'top','500',false,)
 			}
 			oBtn.onclick=function(){
-				animation(oBox1,'opacity','100')
+				animation(oBox1,'opacity','100',false)
 			}
 			oBox2.onmouseover=function(){
-				animation(oBox2,'width','500')
+				animation(oBox2,'width','500',false)
 			}
 			oBox2.onmouseout=function(){
-				animation(oBox2,'width','100')
+				animation(oBox2,'width','100',false)
 			}
 			oBox3.onmouseover=function(){
-				animation(oBox3,'height','500')
+				animation(oBox3,'height','500',false)
 			}
 			oBox3.onmouseout=function(){
-				animation(oBox3,'height','100')
+				animation(oBox3,'height','100',false)
 			}
 			oBox4.onmouseover=function(){
-				animation(oBox4,'opacity','10')
+				animation(oBox4,'opacity','10',false)
 			}
 			oBox4.onmouseout=function(){
-				animation(oBox4,'opacity','100')
+				animation(oBox4,'opacity','100',false)
 			}
 		}
 	</script>

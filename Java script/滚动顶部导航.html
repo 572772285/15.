@@ -33,41 +33,52 @@
 	</style>
 	<script>
 		var timer=null;
-			function animation(obj,attr,value){
-				/*obj表示对象，attr表示什么属性，value表示目标值*/
-				var Speed=0;
-				/*定义一个速度*/
-				clearInterval(obj.timer);
-				/*先清除定时器*/
-				obj.timer=setInterval(function(){
-					var curr=parseFloat(getComputedStyle(obj,false)[attr]);
-					console.log(curr)
-					/*定义一个curr的变量表示当前对象的属性值*/
+		function animation(obj,attr,value,isLinear){
+			var isPeed=0;
+			var isStop=false;
+			clearInterval(obj.timer);
+			obj.timer=setInterval(function(){
+					var curr=parseFloat(getComputedStyle(obj,false)[attr]);					
 					if(attr=='opacity'){
-						curr=curr*100;
+						curr=Math.round(curr*100)
+						/*四舍五入*/
 					}
-					if(curr<value){
-						sPeed=20;
+					if(isLinear){
+						if(curr<value){
+							isPeed=10;
+						}else{
+							isPeed=-10;
+						}
+						if(Math.abs(value-curr)<Math.abs(isPeed)){
+							isStop=true;
+						}
 					}else{
-						sPeed=-20;
+						isPeed=(value-curr)/10;
+						isPeed=isPeed>0?Math.ceil(isPeed):Math.floor(isPeed);
+						if(!isPeed){
+							isStop=true;
+						}
 					}
-					if(Math.abs(value-curr)<Math.abs(sPeed)){
-						
+					/*向上取整和向下取整*/
+					if(isStop){
 						clearInterval(obj.timer);
-						if(attr=='opacity'){
-							obj.style[attr]=value/100;
+						if(isLinear){
+							if(attr=='opacity'){
+								obj.style[attr]=value/100;
+							}else{
+								obj.style[attr]=value+'px';
+							}
 						}
-							obj.style[attr]=value+'px';
 					}else{
 						if(attr=='opacity'){
-							obj.style[attr]=(curr+sPeed)/100;
+							obj.style[attr]=(curr+isPeed)/100;
+						}else{
+							obj.style[attr]=curr+isPeed+'px'
 						}
-							obj.style[attr]=curr+sPeed+'px';
-						
+						console.log(isPeed)
 					}
-					console.log(obj.style[attr])	
 				},30)
-			}
+		}
 			var isShow=false;
 		window.onscroll=function(){
 			var oNav=document.getElementById('nav');
@@ -76,7 +87,6 @@
 			var iTop=document.body.scrollTop||document.documentElement.scrollTop;
 			var iHeight=window.innerHeight;
 			var iTarget=iTop;
-			
 				if(iTop>=100){
 					if(!isShow){
 						animation(oNav1,'height',100);

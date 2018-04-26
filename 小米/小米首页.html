@@ -6,53 +6,26 @@
 	<link rel="stylesheet" href="../css1.1/重置代码.css">
 	<link rel="stylesheet" href="../小米/css/mi css.css">
 	<link rel="stylesheet" href="../src/web-fonts-with-css/css/fontawesome-all.min.css">
+	<script src="../Java script/animation.js"></script>
 	<script>
-		var timer=null;
-			function animation(obj,attr,value){
-				/*obj表示对象，attr表示什么属性，value表示目标值*/
-				var Speed=0;
-				/*定义一个速度*/
-				clearInterval(obj.timer);
-				/*先清除定时器*/
-				obj.timer=setInterval(function(){
-					var curr=parseFloat(getComputedStyle(obj,false)[attr]);
-					console.log(curr)
-					/*定义一个curr的变量表示当前对象的属性值*/
-					if(attr=='opacity'){
-						curr=curr*100;
-					}
-					if(curr<value){
-						sPeed=200;
-					}else{
-						sPeed=-200;
-					}
-					if(Math.abs(value-curr)<Math.abs(sPeed)){
-						
-						clearInterval(obj.timer);
-						if(attr=='opacity'){
-							obj.style[attr]=value/100;
-						}
-							obj.style[attr]=value+'px';
-					}else{
-						if(attr=='opacity'){
-							obj.style[attr]=(curr+sPeed)/100;
-						}
-							obj.style[attr]=curr+sPeed+'px';
-						
-					}
-					console.log(obj.style[attr])	
-				},30)
-			}
+			var show=false;
 			window.onscroll=window.onresize=window.onload=function(){
 				var oHead0=document.getElementById('head0');
+				var oSection=document.getElementById('section');
 				var iTop=document.body.scrollTop||document.documentElement.scrollTop;
 				var iHeight=window.innerHeight;
-				var iTarget=iTop;
-				animation(oHead0,'top',iTarget);
 				if(iTop>140){
-					oHead0.style.display='block'
+					if(!show){
+						animation(oHead0,{'height':'100'},false);
+						oSection.style.marginTop='150px'
+						show=true;
+					}
 				}else{
-					oHead0.style.display='none'
+					if(show){
+						animation(oHead0,{'height':'0'},false);
+						oSection.style.marginTop='0px'
+						show=false;
+					}
 				}
 			}
 			window.onload=function(){
@@ -63,58 +36,52 @@
 				var oLibox=document.getElementById('libox');
 				var oUl=oLibox.getElementsByTagName('ul');
 				var bian=0;
-			timer=null;
-			function yiyang(){
-				for(var i=0;i<oImg.length;i++){
-					oImg[i].style.zIndex=0;
+				timer=null;
+				function yiyang(){
+					for(var i=0;i<oImg.length;i++){
+						oImg[i].style.zIndex=0;
+					}
+					for(var i=0;i<oUl.length;i++){
+						oUl[i].className='';
+					}
+					oImg[bian].style.zIndex=979;
+					oImg[bian].style.opacity=0;
+					animation(oImg[bian],{'opacity':'100'},false)
+					oUl[bian].className='listnone';
 				}
-				for(var i=0;i<oUl.length;i++){
-					oUl[i].className='';
-				}
-				oImg[bian].style.zIndex=979;
-				oUl[bian].className='listnone';
-			}
-			oAnniuR.onclick=function(){		
-				bian++;
-				if(bian>=oImg.length){
-					bian=0;
-				}
-				yiyang();
-			}
-			oAnniuL.onclick=function(){
-				bian--;
-				if(bian<0){
-					bian=oImg.length-1;
-				}
-				yiyang();
-			}
-			for(var j=0;j<oUl.length;j++){
-				oUl[j].index=j;
-				/*当循环过后j的值会变成4所以要先把j存起来*/				
-				oUl[j].onclick=function(){
-					bian=this.index;
-					yiyang();
-				}
-			}
-			timer=setInterval(function(){
-				bian++;
-				if(bian>=oImg.length){
-					bian=0;
-				}
-				yiyang();
-			},5000)
-			oBox.onmouseover=function(){
-				clearInterval(timer);
-			}
-			oBox.onmouseout=function(){
-				timer=setInterval(function(){
+				oAnniuR.onclick=function(){		
 					bian++;
 					if(bian>=oImg.length){
 						bian=0;
 					}
 					yiyang();
-				},5000)
-			}
+				}
+				oAnniuL.onclick=function(){
+					bian--;
+					if(bian<0){
+						bian=oImg.length-1;
+					}
+					yiyang();
+				}
+				for(var j=0;j<oUl.length;j++){
+					oUl[j].index=j;
+					/*当循环过后j的值会变成4所以要先把j存起来*/				
+					oUl[j].onclick=function(){
+						bian=this.index;
+						yiyang();
+					}
+				}
+				timer=setInterval(function(){
+					oAnniuR.onclick();
+				},3000)
+				oImgbox.onmouseover=function(){
+					clearInterval(timer);
+				}
+				oImgbox.onmouseout=function(){
+					timer=setInterval(function(){
+						oAnniuR.onclick();
+					},3000)
+				}
 			}
 	</script>
 </head>
@@ -174,7 +141,7 @@
 			</div>
 		</div>
 	</div>
-		<div class="head0" id="head0" style="display: none;">
+		<div class="head0" id="head0">
 		<div class="head1">
 			<div class="headleft">
 				<ul>
@@ -203,7 +170,7 @@
 		</div>
 	</div>
 	<!-- head end -->
-	<section>
+	<section id="section">
 		<div class="hot">
 			<div class="hot1">
 				<ul class="list">

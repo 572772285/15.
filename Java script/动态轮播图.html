@@ -69,6 +69,7 @@
 		}
 
 	</style>
+	<script src="animation.js"></script>
 	<script>
 		window.onload=function(){
 			var oBox=document.getElementById('box');
@@ -89,6 +90,8 @@
 				}
 				oLi1[bian].style.zIndex=979;
 				oLi2[bian].className='listcolor';
+				oLi1[bian].style.opacity='0'				
+				animation(oLi1[bian],{'opacity':'100'},false)				
 			}
 			oBtn2.onclick=function(){		
 				bian++;
@@ -113,23 +116,15 @@
 				}
 			}
 			timer=setInterval(function(){
-				bian++;
-				if(bian>=oLi1.length){
-					bian=0;
-				}
-				yiyang();
-			},1000)
+				oBtn2.onclick();
+			},3000)
 			oBox.onmouseover=function(){
 				clearInterval(timer);
 			}
 			oBox.onmouseout=function(){
 				timer=setInterval(function(){
-					bian++;
-					if(bian>=oLi1.length){
-						bian=0;
-					}
-					yiyang();
-				},1000)
+				oBtn2.onclick();
+			},3000)
 			}
 		}
 	</script>

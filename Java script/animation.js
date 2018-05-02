@@ -13,9 +13,9 @@
 						}
 						if(isLinear){
 							if(curr<option[attr]){
-								isPeed=10;
+								isPeed=5;
 							}else{
-								isPeed=-10;
+								isPeed=-5;
 							}
 							if(Math.abs(option[attr]-curr)<Math.abs(isPeed)){
 								isStop=true;

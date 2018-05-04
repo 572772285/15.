@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>校验</title>
+	<script>
+		window.onload=function(){
+			var oInput=document.getElementById('input1');
+			var oTxt=document.getElementById('txt'); 
+			var oBtn=document.getElementById('btn'); 
+			var panduan=false;
+
+			oInput.onfocus=function(){
+				oTxt.innerHTML='请输入6位数';
+				oTxt.style.color='black';
+				oInput.onkeydown=function(ev){
+				var oEvent=ev||event;
+				console.log(oEvent.keyCode);
+				if( oEvent.keyCode!=8&& oEvent.keyCode!=37&& oEvent.keyCode!=39&&oEvent.keyCode<48||oEvent.keyCode>57){
+					oTxt.innerHTML='请输入6位数';
+					oTxt.style.color='red';
+					// return false
+				}
+			}
+			}
+			oInput.onblur=function(){
+				if(oInput.value.length>=3&&oInput.value.length<=9){
+					oTxt.innerHTML='正确';
+					oTxt.style.color='green';
+					panduan=true;
+				}else{
+					oTxt.innerHTML='请输入6位数';
+					oTxt.style.color='red';
+					panduan=false;
+				}
+			}
+			oBtn.onclick=function(){
+				if(panduan==false){
+					return false
+				}else{
+					oTxt.innerHTML='正确';
+					oTxt.style.color='green';
+				}
+			}
+			oInput.onkeydown=function(ev){
+				var oEvent=ev||event;
+
+				if(oEvent.keyCode==13){
+					
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<form action="https://www.taobao.com">
+		<input type="text" name="username" id="input1">
+		<span id="txt"></span>
+		<p><input type="submit" value="登陆" id="btn"></p>
+	</form>
+
+</body>
+</html>

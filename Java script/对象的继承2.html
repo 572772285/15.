@@ -23,6 +23,9 @@
 		}
 		for(key in person.prototype){
 			students.prototype[key]=person.prototype[key]
+			/*把person的key（showname、showage）赋给student
+			student.prototype和person.prototype是两个不同的东西互不影响
+			*/
 		}
 		students.prototype.showClassname=function(){
 			console.log('I am from '+this.classname);

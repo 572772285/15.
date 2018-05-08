@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>面向对象拖拽</title>
+	<style>
+		div{
+			width: 200px;
+			height: 200px;
+			background-color: red;
+			position: absolute;
+			top:0;
+			left:0;
+		}
+	</style>
+	<script>
+		oDiv=null;
+		disY=0;
+		disX=0;
+		window.onload=function(){
+			new gouzaohanshu
+		}
+		function gouzaohanshu(){
+			oDiv=document.getElementById('div1');
+			oDiv.onmousedown=fndown;
+			
+		}
+		function fndown(ev){
+			var oEvent=ev||event;
+			disX=oEvent.clientX- oDiv.offsetLeft;
+			disY=oEvent.clientY- oDiv.offsetTop;
+				document.onmousemove=fnmove;
+				document.onmouseup=fnup;
+			}
+		function fnmove(ev){
+					var oEvent=ev||event;
+					oDiv.style.left=oEvent.clientX-disX+'px';
+					oDiv.style.top=oEvent.clientY-disY+'px';
+		}
+		function fnup(ev){
+			document.onmousemove=null;
+			document.onmouseup=null;
+		}
+	</script>
+</head>
+<body>
+	<div id="div1"></div>
+</body>
+</html>

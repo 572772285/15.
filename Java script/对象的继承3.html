@@ -22,6 +22,8 @@
 		}
 		console.log("1::",students.prototype)
 		students.prototype=new person();
+		/*只用父类的对象*/
+		students.prototype=new person
 		console.log("2::",students.prototype)
 		/*constructor消失*/
 		students.prototype.showClassname=function(){

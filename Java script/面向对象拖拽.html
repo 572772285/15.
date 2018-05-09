@@ -4,46 +4,58 @@
 	<meta charset="UTF-8">
 	<title>面向对象拖拽</title>
 	<style>
-		div{
-			width: 200px;
-			height: 200px;
-			background-color: red;
-			position: absolute;
-			top:0;
-			left:0;
-		}
 	</style>
 	<script>
-		oDiv=null;
-		disY=0;
-		disX=0;
 		window.onload=function(){
-			new gouzaohanshu
+			new gouzaohanshu({width:400,height:400,background:'blue'})
+			new gouzaohanshu({width:200,height:200,background:'pink'})
+			new Gouzaohanshu1()
 		}
-		function gouzaohanshu(){
-			oDiv=document.getElementById('div1');
-			oDiv.onmousedown=fndown;
-			
+		function gouzaohanshu(option){
+			this.disY=0;
+			this.disX=0;
+			// console.log(this)
+			this.width=option.width;
+			this.height=option.height;
+			this.background=option.background;
+			this.chouli();
+			this.anxia();
 		}
-		function fndown(ev){
+		gouzaohanshu.prototype.anxia=function(){
+			this.oDiv.onmousedown=function(ev){
+			// console.log(this)
 			var oEvent=ev||event;
-			disX=oEvent.clientX- oDiv.offsetLeft;
-			disY=oEvent.clientY- oDiv.offsetTop;
-				document.onmousemove=fnmove;
-				document.onmouseup=fnup;
-			}
-		function fnmove(ev){
-					var oEvent=ev||event;
-					oDiv.style.left=oEvent.clientX-disX+'px';
-					oDiv.style.top=oEvent.clientY-disY+'px';
+			this.disX=oEvent.clientX- this.oDiv.offsetLeft;
+			this.disY=oEvent.clientY- this.oDiv.offsetTop;
+				document.onmousemove=this.fnmove.bind(this);
+				document.onmouseup=this.fnup;
+			}.bind(this);
 		}
-		function fnup(ev){
+		gouzaohanshu.prototype.chouli=function(){
+			this.oDiv=document.createElement('div');
+			console.log(this)
+			this.oDiv.style.position='absolute';
+			this.oDiv.style.width=this.width+'px';
+			this.oDiv.style.height=this.height+'px';
+			this.oDiv.style.background=this.background;
+			document.body.appendChild(this.oDiv);
+		}
+		gouzaohanshu.prototype.fnmove=function(ev){
+					var oEvent=ev||event;
+					this.oDiv.style.left=oEvent.clientX-this.disX+'px';
+					this.oDiv.style.top=oEvent.clientY-this.disY+'px';
+		}
+		gouzaohanshu.prototype.fnup=function(ev){
 			document.onmousemove=null;
 			document.onmouseup=null;
+		}
+		function Gouzaohanshu1(option){
+			gouzaohanshu.call(this,option)
+			console.log(this)
 		}
 	</script>
 </head>
 <body>
-	<div id="div1"></div>
+
 </body>
 </html>

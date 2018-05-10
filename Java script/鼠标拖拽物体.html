@@ -30,20 +30,21 @@
 						var zuo=oEvent.clientX-disX;
 						var shang=oEvent.clientY-disY;
 						/*盒子与浏览左右的距离*/
-						oDiv1.style.left=zuo+'px';
-						oDiv1.style.top=shang+'px';
+						
 						if(zuo<30){
-							oDiv1.style.left='0px';
+							zuo=0;
 						}
 						if(shang<30){
-							oDiv1.style.top='0px';
+							shang=0;
 						}
 						if(zuo>window.innerWidth-oDiv1.offsetWidth){
-							oDiv1.style.left=window.innerWidth-oDiv1.offsetWidth+'px';
+							zuo=window.innerWidth-oDiv1.offsetWidth;
 						}
 						if(shang>window.innerHeight-oDiv1.offsetHeight){
-							oDiv1.style.top=window.innerHeight-oDiv1.offsetHeight+'px';
+							shang=window.innerHeight-oDiv1.offsetHeight;
 						}
+						oDiv1.style.left=zuo+'px';
+						oDiv1.style.top=shang+'px';
 					}
 					document.onmouseup=function(){
 						document.onmousemove=null;

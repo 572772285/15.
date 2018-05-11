@@ -14,13 +14,20 @@
 			var reg1=/is/gi;
 			console.log('2:::',str.replace(reg1,'**'));
 			var reg = /\bis\b/gi;
-			/*\b为单次分隔符，正则一般只匹配一项，如果想要匹配多项在最后面加上g。在后面加一个i会不区分大小写*/
+			// \b为单次分隔符，正则一般只匹配一项，如果想要匹配多项在最后面加上g。在后面加一个i会不区分大小写
 			console.log('3:::',str.replace(reg,"***"));
 			oBtn.onclick=function(){
-				var reg2=/淘宝|京东/;
-
-				oTxt1.value=oTxt.value;
-				oTxt1.value=oTxt1.value.replace(reg2,'xx');
+					
+				var reg=/\d+/g;
+				var reg2=/我草你妈|傻逼/g;
+				// var str1=oTxt.value;
+				var reg3 = /<[^<>]+>/g;
+				var reg4=/\bis\b/gi;
+				oTxt1.value=oTxt.value;	
+				oTxt1.value=oTxt1.value.replace(reg2,'**');
+				oTxt1.value=oTxt1.value.replace(reg,'**');
+				oTxt1.value=oTxt1.value.replace(reg3,'**');
+				oTxt1.value=oTxt1.value.replace(reg4,'**');
 			}
 			/*过滤关键字*/
 			

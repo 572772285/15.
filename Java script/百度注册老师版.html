@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>184-表单脚本-表单验证案例模板.html</title>
+    <title>185-表单脚本-表单验证案例.html</title>
     <style>
         * {
             margin: 0;
@@ -93,7 +93,7 @@
         }
         .reg input:focus {
             border-color: #488ee7;
-            outline: 0;
+            outline: 0;b
         }
         .msg{
             display: none;
@@ -207,126 +207,132 @@
             color: #fc4343;
         }
     </style>
-</head>
-	<script>
-		function getlen(str){
-			return str.replace(/[\u4e00-\u9fa5]/g,"aa").length;
-		}
-		window.onload=function(){
-			var oForm=document.forms[0];
-			var oCancel=document.querySelectorAll('.cancel');
-			var oMsg=document.querySelectorAll('.msg');
-			var oPhone=oForm.phone;
-			var oUserName=oForm.username;
-			var oPassWord=oForm.password;
-			var oVerify=oForm.verify;
-			loading();	
-			check();	
-			checkphone();	
-			function loading(){
-				oUserName.focus();
-				oMsg[0].className='tiptext';
-				oMsg[0].innerHTML='设置后不可更改<br>中英文均可，最长14个英文或单词';
-			}			
-			function seterr(obj,value,input){
-				obj.className='err';
-				obj.innerHTML=value;
-				input.style.borderColor='red';
-			}
-			/*把输入属性和删除属性委托*/
-			oForm.oninput= function shuru(ev){
+    <script>
+        function getLen(str){
+            return str.replace(/[\u4e00-\u9fa5]/g,'aa').length;
+        }
+        function setErr(oMsg,sMsg,oInput){
+            oMsg.className = 'err';
+            oMsg.innerHTML = sMsg;
+            oInput.style.borderColor = 'red';            
+        }
+        window.onload = function(){
+            //获取元素
+            var oForm = document.forms[0];
+            var oUserName = oForm.username;
+            var oPhone = oForm.phone;
+            var aCancel = document.querySelectorAll('.cancel');
+            var aMsg = document.querySelectorAll('.msg');
+            init();
+            checkUserName();
+            checkPhone();
+            //初始化
+            //设置默认焦点
+            function init(){
+                oUserName.focus();
+                //设置默认提示信息
+                aMsg[0].className = 'tiptext';
+                aMsg[0].innerHTML = '设置后不可更改<br>中英文均可,最长14个英文或7个汉字';               
+            }
+            oForm.oninput= function shuru(ev){
                 var oEvent=ev||event;
-                var oCancel1=ev.target.nextElementSibling;
+                console.log(ev.target);
                 if(ev.target.value.length > 0){
-                    oCancel1.style.display = 'block';
+                    aCancel[0].style.display = 'block';
                 }else{
-                    oCancel1.style.display = 'none';
+                    aCancel[0].style.display = 'none';
                 }
             }
-            oForm.onclick=function shanchu(ev){
-                var oEvent=ev||event;
-                var oninput1=ev.target.previousElementSibling;
-                if(oninput1==oUserName||oninput1==oPhone||oninput1==oPassWord||oninput1==oVerify){
-                	oninput1.value='';
-					ev.target.style.display='none';
-					oninput1.focus();
+            //验证用户名
+            function checkUserName(){
+                //监听用户名的输入事件
+                //监听取消按钮事件
+                aCancel[0].onclick = function(){
+                    oUserName.value = '';
+                    aCancel[0].style.display = 'none';
+                    oUserName.focus();
+                    // oUserName.style.borderColor = '#ccc';
+                }
+                oUserName.onfocus = function(){
+                    aMsg[0].className = 'tiptext';
+                    aMsg[0].innerHTML = '设置后不可更改<br>中英文均可,最长14个英文或7个汉字';
+                    oUserName.style.borderColor = '#488ee7';               
+                }
+                oUserName.onblur = function(){
+                    aMsg[0].className = 'msg';
+                    oUserName.style.borderColor = '#ddd';
+                    var sVal = oUserName.value;
+                    var reg1 = /[^\u4e00-\u9fa5|a-z|0-9_]/;
+                    var reg2 = /^\d+$/;
+                    var reg3 = /^\s+$/;
+                    if(sVal == ''){
+                    }
+                    //用户名不能超过7个汉字或14个字符
+                    else if(getLen(sVal)>14){
+                        setErr(aMsg[0],'用户名不能超过7个汉字或14个字符',oUserName);                   
+                    }
+                    else if(reg3.test(sVal)){
+                        setErr(aMsg[0],'请输入用户名',oUserName);                       
+                    }                
+                    //用户名仅支持中英文、数字和下划线,且不能为纯数字
+                    else if(reg1.test(sVal) || reg2.test(sVal)){
+                        setErr(aMsg[0],'用户名仅支持中英文、数字和下划线,且不能为纯数字',oUserName);                   
+                    }else{
+                        aMsg[0].className = 'ok';
+                        aMsg[0].innerHTML = '';
+                        oUserName.style.borderColor = '#ddd';                   
+                    }
                 }
             }
-			function check(){
-				oUserName.onfocus=function(){
-					oMsg[0].className='tiptext';
-					oMsg[0].innerHTML='设置后不可更改<br>中英文均可，最长14个英文或单词';
-					oUserName.style.borderColor='#488ee7';
-				}
-				oUserName.onblur=function(){
-					/*用户不能超过7个汉字或者14字符*/
-					oMsg[0].className='msg';	
-					var str=oUserName.value;
-					var reg=/[^\u4e00-\u9fa5|a-z|0-9|_]/;
-					/*开始和结尾都是数字，中间是数字*/
-					var reg2=/^\d+$/;
-					var reg3=/^\s+$/;
-					console.log(reg.test(str))
-					if(str==''){
-						oUserName.style.borderColor='#ccc';
-					}
-					else if(getlen(str)>14){
-						seterr(oMsg[0],'用户不能超过7个汉字或者14字符',oUserName);
-					}
-					else if(reg3.test(str)){
-						seterr(oMsg[0],'请输入用户名',oUserName);
-					}
-					else if(reg.test(str)||reg2.test(str)){
-						seterr(oMsg[0],'用户名仅支持中英文、数字和下划线，且不能为纯数字',oUserName);
-					}else{
-						oMsg[0].className='ok';
-						oMsg[0].innerHTML='';
-						oUserName.style.borderColor='#ddd';
-					}
-				}
+            //验证手机
+            function checkPhone(){
+                //监听手机的输入事件
+                // oPhone.oninput = function(){
+                //     //显示或者隐藏取消按钮
+                //     if(oPhone.value.length > 0){
+                //         aCancel[1].style.display = 'block';
+                //     }else{
+                //         aCancel[1].style.display = 'none';
+                //     }
+                // }
+                //监听取消按钮事件
+                aCancel[1].onclick = function(){
+                    oPhone.value = '';
+                    aCancel[1].style.display = 'none';
+                    oPhone.focus();
+                }
+                oPhone.onfocus = function(){
+                    aMsg[1].className = 'tiptext';
+                    aMsg[1].innerHTML = '请输入中国大陆手机号,其他用户不可见';
+                    oPhone.style.borderColor = '#488ee7';               
+                }
+                oPhone.onblur = function(){
+                    aMsg[1].className = 'msg';
+                    oPhone.style.borderColor = '#ddd';
+                    var sVal = oPhone.value;
+                    //合法手机号 11位数字
+                    //13213368101
+                    var reg1 = /^\s+$/;
+                    var reg2 = /^1[35789]\d{9}$/;
+                    if(sVal == ''){
+                    }
+                    else if(reg1.test(sVal)){
+                        setErr(aMsg[1],'请输入手机号',oPhone);
+                    }
+                    else if(!reg2.test(sVal)){
+                        setErr(aMsg[1],'手机号码格式不正确',oPhone);              
+                    }                
+                    else{
+                        aMsg[1].className = 'ok';
+                        aMsg[1].innerHTML = '';
+                        oPhone.style.borderColor = '#ddd';                   
+                    }
+                }
+            }            
+        }
+    </script>
+</head>
 
-			}
-			function checkphone(){
-				oPhone.onfocus=function(){
-					oMsg[1].className='tiptext';
-					oMsg[1].innerHTML='请输入中国大陆手机号，其他用户不可见';
-					oPhone.style.borderColor='#488ee7';
-				}
-				oPhone.onblur=function(){
-					/*用户不能超过7个汉字或者14字符*/
-					oMsg[1].className='msg';	
-					var str=oPhone.value;
-					var reg=/^[1][3,4,5,7,8][0-9]{9}$/;
-					var reg3=/^\s+$/;
-					/*开始和结尾都是数字，中间是数字*/
-					console.log(reg.test(str))
-					if(str==''){
-						oPhone.style.borderColor='#ccc';
-					}
-					else if(reg3.test(str)){
-						seterr(oMsg[1],'请您输入手机号',oUserName);
-					}
-					else if(!reg.test(str)){
-						seterr(oMsg[1],'手机号码格式不正确',oPhone);
-					}else{
-						oMsg[1].className='ok';
-						oMsg[1].innerHTML='';
-						oPhone.style.borderColor='#ddd';
-					}
-				}
-			}
-			oPhone.onkeydown=function(ev){
-				var oEvent=ev||event;
-				// console.log(ev.keyCode);
-				if( (oEvent.keyCode!=8&& oEvent.keyCode!=37&& oEvent.keyCode!=39&&oEvent.keyCode<48||oEvent.keyCode>57)){
-					return false;
-				}
-				if(oPhone.value.length==11){
-					return false
-				}
-			}
-		}
-	</script>
 <body>
     <div class="reg" id='reg'>
         <form action="http://www.kuazhu.com">

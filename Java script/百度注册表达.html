@@ -212,6 +212,7 @@
 		window.onload=function(){
 			var oForm=document.forms[0];
 			var oCancel=document.querySelectorAll('.cancel');
+			var oMsg=document.querySelectorAll('.msg');
 			console.log("1111",oCancel);
 			console.log("222",oForm);
 			var oPhone=oForm.phone;
@@ -221,6 +222,8 @@
 			oUserName.oninput=function(){
 				if(oUserName.value.length>0){
 				oCancel[0].style.display='block';
+				oMsg[0].style.display='block';
+				oMsg[0].className='ok';
 				// oCancel[1].innerHTML='正确'
 				}
 			}

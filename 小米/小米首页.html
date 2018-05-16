@@ -82,6 +82,14 @@
 						oAnniuR.onclick();
 					},3000)
 				}
+				function inputborder(){
+					var oInput=document.querySelectorAll('.head0 .head1 .headright .input li input');
+					oInput[0].onfocus=function(){
+
+					}
+					console.log('11111',oInput);
+				}
+				inputborder();
 			}
 	</script>
 </head>
@@ -132,12 +140,9 @@
 			</div>
 			<!-- headleft -->
 			<div class="headright">
-				<ul>
-					<a href="#"><i class="fas fa-search"></i></a>	
-				</ul>
-				<ul class="input">
-					<li><input type="text"></li>
-				</ul>
+					<input type="text">
+					<i class="fas fa-search"></i>
+					<!-- <li></li> -->
 			</div>
 		</div>
 	</div>

@@ -1,5 +1,6 @@
 *{
 	box-sizing: border-box;
+	list-style: none;
 }
 .clearfix:after{
 	content: '';
@@ -77,6 +78,9 @@ nav div .navright li:nth-child(1):hover a{
 	height: 100%;
 	margin:0 auto;
 }
+.head0 .head1 .headleft{
+	float: left;
+}
 .head0 .head1 .headleft li{
 	float: left;
 	height: 100px;
@@ -94,43 +98,33 @@ nav div .navright li:nth-child(1):hover a{
 	margin-right: 100px;
 	padding-top: 25px;
 }
-
-.head0 .head1 .headright ul{
+.head0 .head1 .headright{
 	float: right;
+	width: 280px;
 	height: 100px;
 	line-height: 100px;
 	position: relative;
 }
-.head0 .head1 .headright ul input{
-	width: 245px;
+.head0 .head1 .headright input{
+	width: 223px;
 	height: 50px;
-	font-size: 15px;
-	border:none;
-}
-.head0 .head1 .headright a{
-	text-align: center;
+	font-size: 14px;
+	position: absolute;
+	top: 25px;
+	right: 50px;
 }
 .head0 .head1 .headright i{
-	border:1px solid #e0e0e0;
-	display: inline-block;
+	display:block;
 	width: 50px;
 	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	font-size: 30px;
 	position: absolute;
 	top:25px;
 	right: 0;
-	font-size: 25px;
-	padding-top: 14px;
-}
-.head0 .head1 .headright .input li input{
-	border:1px solid #e0e0e0;
-	height: 50px;
-	position: absolute;
-	top: 0px;
-	right: 50px;
-}
-.head0 .head1 .headright .input li{
-	position: absolute;
-	top: 25px;
+	border:1px solid #ccc;
+	border-left: none;
 }
 /*section*/
 section .hot .hot1{

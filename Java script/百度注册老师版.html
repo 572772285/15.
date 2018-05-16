@@ -237,6 +237,7 @@
             oForm.oninput= function shuru(ev){
                 var oEvent=ev||event;
                 console.log(ev.target);
+                
                 if(ev.target.value.length > 0){
                     aCancel[0].style.display = 'block';
                 }else{

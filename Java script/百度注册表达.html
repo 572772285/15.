@@ -222,7 +222,8 @@
 			var oVerify=oForm.verify;
 			loading();	
 			check();	
-			checkphone();	
+			checkphone();
+			mima();	
 			function loading(){
 				oUserName.focus();
 				oMsg[0].className='tiptext';
@@ -266,7 +267,6 @@
 					/*开始和结尾都是数字，中间是数字*/
 					var reg2=/^\d+$/;
 					var reg3=/^\s+$/;
-					console.log(reg.test(str))
 					if(str==''){
 						oUserName.style.borderColor='#ccc';
 					}
@@ -325,6 +325,69 @@
 					return false
 				}
 			}
+			/*密码*/
+			function mima(){
+				var oPw=document.getElementById('pwdChecklist');
+				/*获取密码右边的框*/
+				var oPassWordinput=oForm.password;
+				// console.log(oPassWordinput);
+				var sSuccess='pwd-checklist-item pwd-checklist-item-success';
+				var sErr='pwd-checklist-item pwd-checklist-item-error';
+				var oLI=oPw.getElementsByTagName('li');
+				// console.log(oLI);
+				var l1=false;
+				var l2=false;
+				var l3=false;			
+				oPassWordinput.onfocus=function(){
+					oPw.style.display='block';
+				}
+				oPassWordinput.oninput=function(){
+					var reg4=/[^0-9a-z\_\,\?\^\.\\]/i;
+					var reg5=/\s/g;
+					if(oPassWordinput.value.length>5&&oPassWordinput.value.length<14){
+						oLI[0].className=sSuccess;
+						l1=true;
+					}else{
+						oLI[0].className=sErr;
+						l1=false
+					}
+					if(reg4.test(oPassWordinput.value)){
+						oLI[1].className=sErr;
+						l2=false;
+					}else{
+						oLI[1].className=sSuccess;
+						l2=true;
+					}
+					if(reg5.test(oPassWordinput.value)){
+						oLI[2].className=sErr;
+						l3=false;
+					}else{
+						oLI[2].className=sSuccess;
+						l3=true;
+					}			
+				}
+				oCancel[2].onclick=function(){
+					l1=false;
+					l2=false;
+					l3=false;
+					for(var i=0;i<oLI.length;i++){
+						oLI[i].className='pwd-checklist-item';
+					}
+				}
+				oPassWordinput.onblur=function(){
+					if(l1==true && l2==true && l3==true){
+						oPw.style.display='none';
+						// oMsg[2].className='ok';
+						// oMsg[2].innerHTML='';
+						// oPhone.style.borderColor='#ddd';
+					}
+					if(oPassWordinput.value==''){
+						oPw.style.display='none';
+						console.log(oPw)
+					}
+				}	
+			}
+			
 		}
 	</script>
 <body>

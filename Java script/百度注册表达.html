@@ -224,6 +224,8 @@
 			check();	
 			checkphone();
 			mima();	
+			yanzhengma();
+			zhuce();
 			function loading(){
 				oUserName.focus();
 				oMsg[0].className='tiptext';
@@ -253,6 +255,13 @@
 					oninput1.focus();
                 }
             }
+					var reg=/[^\u4e00-\u9fa5|a-z|0-9|_]/;
+            		var reg2=/^\d+$/;
+					var reg3=/^\s+$/;
+					var reg4=/^[1][3,4,5,7,8][0-9]{9}$/;
+					var reg5=/^\s+$/;
+					var reg6=/[^0-9a-z\_\,\?\^\.\\]/i;
+					var reg7=/\s/g;
 			function check(){
 				oUserName.onfocus=function(){
 					oMsg[0].className='tiptext';
@@ -263,10 +272,8 @@
 					/*用户不能超过7个汉字或者14字符*/
 					oMsg[0].className='msg';	
 					var str=oUserName.value;
-					var reg=/[^\u4e00-\u9fa5|a-z|0-9|_]/;
 					/*开始和结尾都是数字，中间是数字*/
-					var reg2=/^\d+$/;
-					var reg3=/^\s+$/;
+					
 					if(str==''){
 						oUserName.style.borderColor='#ccc';
 					}
@@ -296,17 +303,15 @@
 					/*用户不能超过7个汉字或者14字符*/
 					oMsg[1].className='msg';	
 					var str=oPhone.value;
-					var reg=/^[1][3,4,5,7,8][0-9]{9}$/;
-					var reg3=/^\s+$/;
 					/*开始和结尾都是数字，中间是数字*/
-					console.log(reg.test(str))
+					console.log(reg4.test(str))
 					if(str==''){
 						oPhone.style.borderColor='#ccc';
 					}
-					else if(reg3.test(str)){
-						seterr(oMsg[1],'请您输入手机号',oUserName);
+					else if(reg5.test(str)){
+						seterr(oMsg[1],'请您输入手机号',oPhone);
 					}
-					else if(!reg.test(str)){
+					else if(!reg4.test(str)){
 						seterr(oMsg[1],'手机号码格式不正确',oPhone);
 					}else{
 						oMsg[1].className='ok';
@@ -326,6 +331,8 @@
 				}
 			}
 			/*密码*/
+			var oPassWordinput=oForm.password;
+
 			function mima(){
 				var oPw=document.getElementById('pwdChecklist');
 				/*获取密码右边的框*/
@@ -342,8 +349,7 @@
 					oPw.style.display='block';
 				}
 				oPassWordinput.oninput=function(){
-					var reg4=/[^0-9a-z\_\,\?\^\.\\]/i;
-					var reg5=/\s/g;
+					
 					if(oPassWordinput.value.length>5&&oPassWordinput.value.length<14){
 						oLI[0].className=sSuccess;
 						l1=true;
@@ -351,14 +357,14 @@
 						oLI[0].className=sErr;
 						l1=false
 					}
-					if(reg4.test(oPassWordinput.value)){
+					if(reg6.test(oPassWordinput.value)){
 						oLI[1].className=sErr;
 						l2=false;
 					}else{
 						oLI[1].className=sSuccess;
 						l2=true;
 					}
-					if(reg5.test(oPassWordinput.value)){
+					if(reg7.test(oPassWordinput.value)){
 						oLI[2].className=sErr;
 						l3=false;
 					}else{
@@ -377,17 +383,51 @@
 				oPassWordinput.onblur=function(){
 					if(l1==true && l2==true && l3==true){
 						oPw.style.display='none';
-						// oMsg[2].className='ok';
-						// oMsg[2].innerHTML='';
-						// oPhone.style.borderColor='#ddd';
+						oMsg[2].className='ok';
+						oMsg[2].innerHTML='';
+						oPhone.style.borderColor='#ddd';
 					}
 					if(oPassWordinput.value==''){
+						oMsg[2].className='msg';
 						oPw.style.display='none';
+						oPhone.style.borderColor='#ddd';
+
 						console.log(oPw)
 					}
 				}	
 			}
-			
+			function yanzhengma(){
+				var oYanzheng=document.getElementById('smsBtn');
+				console.log(oYanzheng)
+				oYanzheng.onclick=function(){
+					if(oPhone.value==''){
+						seterr(oMsg[1],'请您输入手机号',oPhone);
+					}
+				}
+			}
+			/*注册*/
+			var oGree=oForm.isAgree;
+			var oYanzhenginput=oForm.verify;
+			function zhuce(){
+				var oZhuce=document.getElementById('subBtn');
+				oZhuce.onclick=function(){
+					if(oPhone.value==''){
+						seterr(oMsg[1],'请您输入手机号',oPhone);
+					}
+					if(oUserName.value==''){
+						seterr(oMsg[0],'请输入用户名',oUserName);
+					}
+					if(oPassWordinput.value==''){
+						seterr(oMsg[2],'请输入密码',oPassWordinput);
+					}
+					if(!oGree.checked){
+						oMsg[4].style.display='block';
+					}
+					if(oYanzhenginput.value==''){
+						seterr(oMsg[3],'请输入验证码',oYanzhenginput);
+					}
+				}
+			}
 		}
 	</script>
 <body>

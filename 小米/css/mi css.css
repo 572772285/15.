@@ -1,6 +1,8 @@
 *{
 	box-sizing: border-box;
 	list-style: none;
+	margin: 0;
+	padding: 0;
 }
 .clearfix:after{
 	content: '';
@@ -190,6 +192,61 @@ nav div .navleft{
 	position: absolute;
 	top: 25px;
 	right: 50px;
+	border:none;
+	border: 1px solid #e0e0e0;
+	outline-width: 0;
+}
+.head0 .head1 .headright input:focus{
+	border-color: #fa6700;
+	border-bottom: none;
+}
+.head0 .head1 .headright span:nth-child(3){
+	right: 100px;
+}
+.head0 .head1 .headright span:nth-child(4){
+	right: 170px;
+}
+.head0 .head1 .headright>span{
+	position: absolute;
+	top: 37px;
+	font-size: 12px;
+	color: #757575;
+	background-color: #ccc;
+	height: 20px;
+	width: 50px;
+	line-height: 20px;
+	text-align: center;
+	cursor: pointer;
+	z-index: 1300;
+}
+.head0 .head1 .headright .search-box{
+	width: 223px;
+	height: 300px;
+	background-color: #fff;
+	position: absolute;
+	top:75px;
+	right: 50px;
+	z-index: 1000;
+	border:1px solid #fa6700;
+	display: none;
+}
+.head0 .head1 .headright .search-box div{
+	height: 50px;
+	width: 100%;
+	line-height: 50px;
+	color: rgba(0,0,0,0.8);
+	font-size: 15px;
+}
+.head0 .head1 .headright .search-box div:hover{
+	background-color: #fa6700;
+	cursor: pointer;
+}
+.head0 .head1 .headright .search-box span{
+	height: 50px;
+	line-height: 50px;
+	float: right;
+	color: #ccc;
+	font-size: 12px;
 }
 .head0 .head1 .headright i{
 	display:block;
@@ -220,6 +277,36 @@ section .hot .hot1 .list{
 	padding-top: 20px;
 	opacity: 0.7;
 }
+section .hot .hot1 .list-box{
+	min-width: 600px;
+	height: 460px;
+	background-color: #fff;
+	z-index: 1000;
+	position: absolute;
+	left: 230px;
+	box-shadow: 0 1px 2px rgba(0,0,0,0.3);
+	display: none;
+}
+section .hot .hot1 .list-box li{
+	width: 200px;
+	height: 50px;
+    cursor: pointer;	
+    float: left;
+}
+section .hot .hot1 .list-box li img{
+	width: 50px;
+	float: left;
+}
+section .hot .hot1 .list-box li a{
+	font-size: 14px;
+	color: #333;
+	float: right;
+	line-height: 50px;
+	margin-right: 80px;
+}
+section .hot .hot1 .list-box li a:hover{
+	color: #fa6700;
+}
 section .hot .hot1 .list li{
 	width: 230px;
 	height: 42px;
@@ -227,7 +314,7 @@ section .hot .hot1 .list li{
 	line-height: 42px;
 	position: relative;
 }
-section .hot .hot1 .list li:hover{
+section .hot .hot1 .list a.active{
 	background-color: #ff6700;
 }
 section .hot .hot1 .list li span{

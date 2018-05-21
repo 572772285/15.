@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>利用闭包和原型构造函数</title>
+	<script>
+		window.onload=function(){
+			function gouzaohanshu(name,age){
+				this.name=name;
+				this.age=age;
+			}
+			gouzaohanshu.prototype.showage=function(){
+				console.log('Im'+this.age);
+			}
+			gouzaohanshu.prototype.showname=function(){
+				console.log('Im'+this.name);
+			}
+			var p1=new gouzaohanshu('liu',18);
+			p1.showname();
+			p1.showage();
+		}
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

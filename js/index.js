@@ -31,7 +31,6 @@ window.onload=function(){
 		var oSpan=oCatload.nextElementSibling;
 		var oCartbox=document.querySelector('.cart-box');
 		var oCatA=oCat.getElementsByTagName('a')[0];
-		console.log(oCatA)
 		oCat.onmouseenter=function(){
 			oCat.style.background='#fff';
 			oCatA.style.color='#fa6700';
@@ -275,26 +274,103 @@ window.onload=function(){
 
 	/*list菜单*/
 	list();
+	var oListul=document.querySelector('.list-ul');
  	function list(){
  		var oA=document.querySelectorAll('.oa');
  		var oListbox=document.querySelector('.list-box');
  		var timer=null;
  		clearTimeout(timer);
  		for(var i=0;i<oA.length;i++){
+ 			oA[i].index=i;
  			oA[i].onmouseenter=function(){
+ 				loadtate1(this.index);
  				clearTimeout(timer);
+ 				for(var j=0;j<oA.length;j++){
+ 					oA[j].className='';
+ 				}
  				this.className='active';
  				oListbox.style.display='block';
  			}
- 			// oA[i].onmouseleave=function(){
- 			// 	timer=setTimeout(function(){
- 			// 		oListbox.style.display='none';
- 			// 	},300)
- 			// }
- 			// oListbox.onmouseenter=function(){
- 			// 	oListbox.style.display='block';
- 			// }
+ 			oA[i].onmouseleave=function(){
+ 				timer=setTimeout(function(){
+ 					oListbox.style.display='none';
+ 				},300)
+ 			}
+ 			oListbox.onmouseenter=function(){
+ 				clearTimeout(timer);
+ 				oListbox.style.display='block';
+ 				console.log('1111')
+ 			}
+ 			oListbox.onmouseleave=function(){
+ 				timer=setTimeout(function(){
+ 					oListbox.style.display='none';
+ 				},300)
+ 			}
  		}
  	}
+ 	function loadtate1(index){
+		var shuzu=lists[index];
+		console.log(shuzu)
+		oListul.innerHTML='';
+		if(!shuzu){
+			return false;
+		}
+		for(var i=0;i<shuzu.length;i++){
+			var oLi=document.createElement('li');
+			oListul.appendChild(oLi);
+			var oImg=document.createElement('img');
+			oImg.src=shuzu[i].img;
+			oLi.appendChild(oImg);
+			var oA=document.createElement('a');
+			oA.innerHTML=shuzu[i].name;
+			oLi.appendChild(oA);
+		}
+		
+	}
+
+	/*闪购切换*/
+	(function flash(){
+		var oSpan=document.querySelectorAll('.flashspan');
+		var oRightbox=document.querySelectorAll('.right')[0];
+		oSpan[0].onclick=function(){
+			animation(oRightbox,{'marginLeft':0},false);
+			oSpan[1].className='flashspan';
+			oSpan[0].className='flashspan flahactive';
+		}
+		oSpan[1].onclick=function(){
+			animation(oRightbox,{'marginLeft':-880},false);
+			oSpan[0].className='flashspan';
+			oSpan[1].className='flashspan flahactive';
+		}
+
+	})();
+	/*闪购倒计时*/
+	(function timer(){
+		function tostr(num){
+			if(num<10){
+				return '0'+num;
+			}else{
+				return ''+num;
+			}
+		}
+		setInterval(likezhixing,1000)
+		function likezhixing(){
+			var oTimer=document.querySelectorAll('.time');
+			/*获取未来时间*/
+			var nextdate=new Date('2018/05/22 12:00:00').getTime();
+			/*获取当前时间*/
+			var now=new Date().getTime();
+			var daojishi=nextdate-now;
+			var s=parseInt(daojishi/1000);
+			// console.log(s)
+			var h=parseInt(s/3600);
+			var m=parseInt(s%3600/60);
+			var s1=(s%3600)%60;
+			oTimer[0].innerHTML=tostr(h);
+			oTimer[1].innerHTML=tostr(m);
+			oTimer[2].innerHTML=tostr(s1);
+		}
+		likezhixing();
+	})();
 }
 

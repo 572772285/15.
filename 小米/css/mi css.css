@@ -292,6 +292,7 @@ section .hot .hot1 .list-box li{
 	height: 50px;
     cursor: pointer;	
     float: left;
+    margin-top: 15px;
 }
 section .hot .hot1 .list-box li img{
 	width: 50px;
@@ -314,7 +315,7 @@ section .hot .hot1 .list li{
 	line-height: 42px;
 	position: relative;
 }
-section .hot .hot1 .list a.active{
+.active{
 	background-color: #ff6700;
 }
 section .hot .hot1 .list li span{
@@ -441,10 +442,11 @@ section .hot .hot1 .hotimg li ul:hover{
 	float: left;
 	margin-left: 15px;
 	transition: all 0.3s;
+	height: 170px;
 }
 .flash ul .flash-r ul:hover{
-	box-shadow: 0 0 30px rgba(0,0,0,0.5);
-	transform: translateZ(20px);
+	box-shadow: 0 0 5px rgba(0,0,0,0.6);
+	transform: translateZ(50px);
 }
 .flash ul .flash-r img{
 	width: 280px;
@@ -453,7 +455,6 @@ section .hot .hot1 .hotimg li ul:hover{
 .flash ul .flash-r ul:nth-child(1){
 	margin-left: 0px;
 }
-
 .mibuy li:nth-child(1){
 	float: left;
 	font-size: 22px;
@@ -461,7 +462,7 @@ section .hot .hot1 .hotimg li ul:hover{
 .mibuy li:nth-child(2){
 	float: right;
 }
-.mibuy li:nth-child(2) span{
+.flashspan{
 	float: left;
 	width: 35px;
 	height: 22px;
@@ -469,8 +470,18 @@ section .hot .hot1 .hotimg li ul:hover{
 	font-size: 26px;
 	line-height: 22px;
 	text-align: center;
+	cursor: pointer;
 }
- .mibuy {
+.flahactive{
+	cursor: auto;
+	color: #ccc;
+}
+.bottom{
+	width: 1100px;
+	height: 320px;
+	margin: 0 auto;
+}
+.mibuy {
 	width: 1100px;
 	height: 100%;
 	margin:0 auto;
@@ -501,60 +512,54 @@ section .hot .hot1 .hotimg li ul:hover{
 	background-color: #605751;
 	color: #fff;
 }
-.bottom .right{
+.bottom .right-box{
 	float: right;
 	width: 880px;
 	background-color: #f5f5f5;
+	overflow: hidden;
 }
-.bottom .right a{
-	display: block;
-	width: 100%;
-	height: 100%;
+.bottom .right{
+	width: 1760px;
+	height: 320px;
+	margin-left: 0px;
 }
-.bottom .right a{
-	display: block;
-	width: 210px;
-	height: 340px;
-	float: left;
-}
-.bottom .right a li{
-	float: left;
+.bottom .right a>li{
+	float: right;
 	width: 210px;
 	margin-left: 10px;
 	background-color: #fafafa;
 	text-align: center;
-	margin-bottom: 10px;
+	margin-bottom: 40px;
+	height: 320px;
 	box-sizing: border-box;
+	position: relative;
 }
 .bottom .right a li img{
 	margin-top: 50px;
 }
-.bottom .right a:nth-child(1)>li{
+.bottom .right a:nth-child(1)>li,.bottom .right a:nth-child(7)>li{
 	border-top: 1px solid #ff6700;
 }
-.bottom .right a:nth-child(2)>li{
+.bottom .right a:nth-child(2)>li,.bottom .right a:nth-child(5)>li{
 	border-top: 1px solid #ffac13;
 }
-.bottom .right a:nth-child(3)>li{
+.bottom .right a:nth-child(3)>li,.bottom .right a:nth-child(6)>li{
 	border-top: 1px solid #2196f3;
 }
-.bottom .right a:nth-child(4)>li{
+.bottom .right a:nth-child(4)>li,.bottom .right a:nth-child(8)>li{
 	border-top: 1px solid #e53934;
 }
- div .bottom{
-	width: 1100px;
-	margin: 0 auto;
-}
  div .bottom .right li ul{
-	height: 100px;
-	text-align: center;
-	margin-top: 40px;
+	width: 100%;
+	position: absolute;
+	bottom: 5px;
 }
 div .bottom .right li ul li{
-	width: 167px;
+	width: 100%;
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: clip;
+	text-align: center;
 }
  div .bottom .right li ul li:nth-child(1){
 	color: #202020;

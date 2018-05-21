@@ -54,9 +54,7 @@
 						}
 					}
 					if(quanbu==true){
-
 						clearInterval(obj.timer);
-						console.log(isPeed)
 							if(fn){
 								fn();
 							}						

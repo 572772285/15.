@@ -13,6 +13,7 @@
 	<div></div>
 </body>
 	<script>
+
 		/*定义一个节流函数*/
 		function jieliu(fn,delay){
 			var timer=null;/*定义一个空定时器*/
@@ -28,5 +29,16 @@
 		window.onresize=jieliu(function(){
 			console.log('123')
 		},500)
+
+		function jieliu(fn,delay){
+			var timer=null;
+			return function(){
+				clearTimeout(timer);
+				timer=setTimeout(fn,delay)
+			}
+		}
+		window.onscroll=jieliu(function(){
+			console.log('aaa')
+		},400)
 	</script>
 </html>

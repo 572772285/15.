@@ -23,7 +23,7 @@ window.onload=function(){
 		}
 	}
 
-
+/*购物车*/
 	handleCart();
 	function handleCart(){
 		var oCat=document.querySelector('.cart');

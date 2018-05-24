@@ -357,7 +357,7 @@ window.onload=function(){
 		function likezhixing(){
 			var oTimer=document.querySelectorAll('.time');
 			/*获取未来时间*/
-			var nextdate=new Date('2018/05/22 12:00:00').getTime();
+			var nextdate=new Date('2018/05/25 12:00:00').getTime();
 			/*获取当前时间*/
 			var now=new Date().getTime();
 			var daojishi=nextdate-now;

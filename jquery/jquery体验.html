@@ -16,9 +16,14 @@
 	</script>
 	<script>
 		$(function(){
-			var oBtn=document.getElementById('btn');
-			var oDiv=document.getElementsByTagName('div');
-			alert(oBtn)
+			var div=$('div');
+			var btn=$('#btn');
+			console.log(btn)
+			console.log(div)
+			div.css({
+				background:'red'
+			})
+
 		})
 	</script>
 </head>

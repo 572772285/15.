@@ -1184,39 +1184,3 @@ var lists=[
 			},
 		]
 ];
-// <li>
-// 							<img src="list2.jpg" alt="">
-// 							<a>小米6x</a>
-// 						</li>
-// 						<li>
-// 							<img src="list2.jpg" alt="">
-// 							<a>小米6x</a>
-// 						</li>
-// 						<li>
-// 							<img src="list2.jpg" alt="">
-// 							<a>小米6x</a>
-// 						</li>
-// 						<li>
-// 							<img src="list2.jpg" alt="">
-// 							<a>小米6x</a>
-// 						</li>
-// 						<li>
-// 							<img src="list2.jpg" alt="">
-// 							<a>小米6x</a>
-// 						</li>
-// 						<li>
-// 							<img src="list2.jpg" alt="">
-// 							<a>小米6x</a>
-// 						</li>
-// 						<li>
-// 							<img src="list2.jpg" alt="">
-// 							<a>小米6x</a>
-// 						</li>
-// 						<li>
-// 							<img src="list2.jpg" alt="">
-// 							<a>小米6x</a>
-// 						</li>
-// 						<li>
-// 							<img src="list2.jpg" alt="">
-// 							<a>小米6x</a>
-// 						</li>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jquery的ajax</title>
+	<script src="../js/jquery-1.12.4.js"></script>
+	<script>
+		$(function(){
+			$('button').on('click',function(){
+					$.ajax({
+					url:'http://127.0.0.1:3000/json.json',
+					type:"GET",
+					date:{
+						name:"leo",
+						age:38
+					},
+					dateType:'json',
+					success:function(date){
+						console.log(date.name)
+					}
+				})
+			})
+			
+		})
+	</script>
+</head>
+<body>
+	<button>点击</button>
+</body>
+</html>

@@ -11,13 +11,15 @@
 			console.log($div[0]);
 			// var div=$div[1];
 			// console.log(div);
-			/*DOM转为jQuery*/
+			/*jquery转DOM*/
 			var div=$div.get(1);
+			console.log('jquery-dom',div)
 			div.style.color='red';
-			/*jquery转化为DOM*/
+			/*DOM--jquery*/
 			var oBtn4=document.getElementById('btn4');
 			/*jquery还可以传DOM节点*/
 			var box=$(oBtn4);
+			console.log(box)
 			box.css({
 				color:'red'
 			})

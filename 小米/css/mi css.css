@@ -711,7 +711,7 @@ div .bottom .right li ul li{
  .elcmiddle-R li .comment{
 	height: 0px;
 	position: absolute;
-	bottom: 0;
+	bottom: 0px;
 	text-align: center;
 	background-color: #fa6700;
 	color: #fff;

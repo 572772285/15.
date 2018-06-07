@@ -1,3 +1,4 @@
+//kQuery的基本结构是一个闭包
 (function(window, undefined){
 var 
 	//kQuery的构造函数
@@ -215,7 +216,7 @@ kQuery.fn.extend({
 	attr:function(arg1,arg2){
 		if(kQuery.isObject(arg1)){//是对象的情况
 			//设置所有的DOM属性值为对象中的所有值
-				.each(function(){
+			this.each(function(){
 				var dom = this;
 				kQuery.each(arg1,function(attr,val){
 					dom.setAttribute(attr,val);
@@ -279,12 +280,109 @@ kQuery.fn.extend({
 			});
 		}
 		return this;
+	},
+	hasClass:function(str){
+		var res = false;
+		if(str){
+			//判断是否存在指定单词的正则
+			var reg = eval('/\\b'+str+'\\b/');
+			this.each(function(){
+				//判断传入的参数是否存在在DOM节点的className上
+				if(reg.test(this.className)){
+					res = true;
+					return false;
+				}
+			})
+		}
+		return res;
+	},
+	addClass:function(str){
+		/*遍历找到每一个*/
+		this.each(function(){
+			//如果有参数对应的class不添加,如果没有就添加
+			var $this = kQuery(this);//DOM节点转kquery对象
+			if(!$this.hasClass(str)){
+				this.className =this.className + ' ' + str;
+			}
+		})
+		return this;
+	},
+	removeclass:function(str){
+		if(str){
+			var reg=eval('/\\b'+str+'\\b/')
+		}else{
+
+		}
 	}
 })
- hasClass:function(str){
 
- }
+kQuery.fn.extend({
+	empty:function(){
+		this.each(function(){
+			this.innerHTML=''
+		})
+		return this
+	},
+	remove:function(selector){
+		if(selector){
+			this.each(function(){
+				var doms=querySelectorAll('selector');
+				if(doms[i]==this){
+					var parentNode=this.parentNode;
+				parentNode.removeChild(this)
+				}
+			})
+		}else{
+			this.each(function(){
+				var parentNode=this.parentNode;
+				parentNode.removeChild(this)
+			})
+		}
+	},
+	append:function(source){
+		if(source){
+			var $source=kQuery(source);
+			this.each(function(index,value){
+				var parentNode=this;
+				if(index==0){
+					$source.each(function(){
+						parentNode.append(this)
+					})
+				}else{
+					$source.each(function(){
+						var dom=this.cloneNode(true);
+						parentNode.append(dom)
+					})
+				}
+			})
+		}else{
+			
+		}
+		return this
+	},
+	prepend:function(source){
+		if(source){
+			var $source=kQuery(source);/*要用jquery对象上的each方法 $source就是('p')或者('.box1')*/
+			this.each(function(index,value){
+				var parentNode=this
+				if(index==0){
+					$source.each(function(){
+						parentNode.insertBefore(this,parentNode.firstChild)
+					})
+				}else{
+					$source.each(function(){
+						var dom=this.cloneNode(true)
+						parentNode.insertBefore(dom,parentNode.firstChild)
+					})
+				}
+			})
+		}else{
 
+		}
+		return this
+	},
+
+})
 
 kQuery.fn.init.prototype = kQuery.fn;
 

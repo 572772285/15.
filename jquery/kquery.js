@@ -1,4 +1,3 @@
-//kQuery的基本结构是一个闭包
 (function(window, undefined){
 var 
 	//kQuery的构造函数
@@ -183,6 +182,16 @@ kQuery.extend({
 			}
 		}
 		return retArr;
+	},
+	toWords:function(str){
+		return str.match(/\b\w+\b/g);
+	},
+	addEvent:function(dom,eventName,fn){
+		if(dom.addEventListener){
+			dom.addEventListener(eventName,fn);
+		}else{
+			dom.attachEvent('on'+eventName,fn);
+		}
 	}
 });
 
@@ -297,92 +306,188 @@ kQuery.fn.extend({
 		return res;
 	},
 	addClass:function(str){
-		/*遍历找到每一个*/
+		//把传入的参数转换为数组
+		// console.log(str.split(" "));
+		// var reg = /\b\w+\b/g;
+		// console.log(str.match(reg));
+		var names = kQuery.toWords(str);
 		this.each(function(){
 			//如果有参数对应的class不添加,如果没有就添加
 			var $this = kQuery(this);//DOM节点转kquery对象
-			if(!$this.hasClass(str)){
-				this.className =this.className + ' ' + str;
+			for(var i = 0;i<names.length;i++){
+				if(!$this.hasClass(names[i])){
+					this.className =this.className + ' ' + names[i];
+				}				
 			}
+
 		})
 		return this;
 	},
-	removeclass:function(str){
+	removeClass:function(str){
 		if(str){
-			var reg=eval('/\\b'+str+'\\b/')
+			//把传入的参数转换为数组
+			var names = kQuery.toWords(str);
+			this.each(function(){
+				//如果有就删除
+				var $this = kQuery(this);
+				for(var i = 0;i<names.length;i++){
+					if($this.hasClass(names[i])){//DOM节点上有class
+						//删除
+						var reg = eval('/\\b'+names[i]+'\\b/');
+						// console.log('把'+this.className+"上的"+names[i]+"删除掉");
+						this.className = this.className.replace(reg,'');
+					}
+				}
+			});			
 		}else{
-
+			this.each(function(){
+				this.className = '';
+			})
 		}
+		return this;
+	},
+	toggleClass:function(str){
+		if(str){
+			var names = kQuery.toWords(str);
+			this.each(function(){
+				var $this = kQuery(this);
+				for(var i = 0;i<names.length;i++){
+					if($this.hasClass(names[i])){
+						//有对应的class删除
+						$this.removeClass(names[i]);
+					}else{
+						//没有对应的class添加
+						$this.addClass(names[i]);
+					}
+				}
+			});
+		}else{
+			this.each(function(){
+				this.className = '';
+			});
+		}
+		return this;
 	}
-})
+});
 
+//kquery对象上的DOM操作相关方法
 kQuery.fn.extend({
 	empty:function(){
 		this.each(function(){
-			this.innerHTML=''
-		})
-		return this
+			this.innerHTML = '';
+		});
+		return this;
 	},
 	remove:function(selector){
 		if(selector){
+			//获取选择器选中的所有DOM节点
+			var doms = document.querySelectorAll(selector);
 			this.each(function(){
-				var doms=querySelectorAll('selector');
-				if(doms[i]==this){
-					var parentNode=this.parentNode;
-				parentNode.removeChild(this)
+				for(var i = 0;i<doms.length;i++){
+					if(doms[i] == this){
+						//删除
+						var parentNode = this.parentNode;
+						parentNode.removeChild(this);
+					}
 				}
-			})
-		}else{
+			});
+		}else{//没有传参
 			this.each(function(){
-				var parentNode=this.parentNode;
-				parentNode.removeChild(this)
-			})
+				//parentNode.removeChild(sonNode)
+				var parentNode = this.parentNode;
+				parentNode.removeChild(this);
+			});
 		}
+		return this;
 	},
 	append:function(source){
 		if(source){
-			var $source=kQuery(source);
+			//kquery对象,DOM节点,HTML代码片段
+			//source -> this
+			var $source = kQuery(source);
 			this.each(function(index,value){
-				var parentNode=this;
-				if(index==0){
+				// this.appendChild($source);
+				var parentNode = this;
+				if(index == 0){//第一个DOM元素直接插入
 					$source.each(function(){
-						parentNode.append(this)
+						parentNode.appendChild(this);
 					})
-				}else{
+				}else{//第一个DOM元素复制一份再插入
 					$source.each(function(){
-						var dom=this.cloneNode(true);
-						parentNode.append(dom)
-					})
+						//复制一份
+						var dom = this.cloneNode(true);
+						parentNode.appendChild(dom);
+						// parentNode.appendChild(this);
+					})					
 				}
 			})
-		}else{
-			
 		}
-		return this
+		return this;
 	},
 	prepend:function(source){
 		if(source){
-			var $source=kQuery(source);/*要用jquery对象上的each方法 $source就是('p')或者('.box1')*/
+			//kquery对象,DOM节点,HTML代码片段
+			//source -> this
+			var $source = kQuery(source);
 			this.each(function(index,value){
-				var parentNode=this
-				if(index==0){
+				// this.appendChild($source);
+				var parentNode = this;
+				if(index == 0){//第一个DOM元素直接插入
 					$source.each(function(){
-						parentNode.insertBefore(this,parentNode.firstChild)
+						// parentNode.appendChild(this);
+						//firstChild
+						//firstElementChild
+						parentNode.insertBefore(this,parentNode.firstChild);
 					})
-				}else{
+				}else{//第一个DOM元素复制一份再插入
 					$source.each(function(){
-						var dom=this.cloneNode(true)
-						parentNode.insertBefore(dom,parentNode.firstChild)
-					})
+						//复制一份
+						var dom = this.cloneNode(true);
+						// parentNode.appendChild(dom);
+						parentNode.insertBefore(dom,parentNode.firstChild);
+					})					
 				}
 			})
-		}else{
-
 		}
-		return this
-	},
+		return this;
+	}	
+});
 
-})
+//kquery对象上事件相关的方法
+kQuery.fn.extend({
+	on:function(eventName,fn){
+		this.each(function(){
+			// this.addEventListener(eventName,fn);
+			// kQuery.addEvent(this,eventName,fn);
+			if(!this.bucketEvent){
+				this.bucketEvent={}
+			}
+			if(!this.bucketEvent[eventName]){
+				this.bucketEvent[eventName]=[]
+				this.bucketEvent[eventName].push(fn);
+				kQuery.addEvent(this,eventName,function(){
+					kQuery.each(this.bucketEvent[eventName],function(){
+						this()
+					})
+				})
+
+			}else{
+				this.bucketEvent[eventName].push(fn)
+			}
+		})	
+	},
+	off:function(eventName,fnName){
+		/*没有传参数就是解除所有事件*/
+		if(arguments.length==0){
+			this.each(function(){
+				this.bucketEvent={}
+			})
+		}
+		// if(arguments==1){
+
+		// }
+	}
+});
 
 kQuery.fn.init.prototype = kQuery.fn;
 

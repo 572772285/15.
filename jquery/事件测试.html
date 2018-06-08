@@ -2,11 +2,29 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<script src="jquery-1.12.4.js"></script>
+	<!-- <script src="jquery-1.12.4.js"></script> -->
 	<script src="kquery.js"></script>
 	<script>
 		$(function(){
-			$('button')
+			function test1(){
+				alert('click1')
+			}
+			function test2(){
+				alert('click2')
+			}
+			function test3(){
+				alert('onmouseover')
+			}
+			function test4(){
+				alert('onmouseout')
+			}
+			$('button').on('click',test2)
+			$('button').on('click',test1)
+			$('button').on('mouseover',test3)
+			$('button').on('mouseout',test4)
+			$('button').off()
+			// $('button').off('click')
+			// $('button').click(test2)
 		})
 	</script>
 	<title>事件测试</title>

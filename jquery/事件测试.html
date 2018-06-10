@@ -18,11 +18,12 @@
 			function test4(){
 				alert('onmouseout')
 			}
-			$('button').on('click',test2)
-			$('button').on('click',test1)
-			$('button').on('mouseover',test3)
-			$('button').on('mouseout',test4)
-			$('button').off()
+			// $('button').on('click',test2)
+			// $('button').on('click',test1)
+			// $('button').on('mouseover',test3)
+			// $('button').on('mouseout',test4)
+			// $('button').off()
+			$('button').off('click',test1);
 			// $('button').off('click')
 			// $('button').click(test2)
 		})

@@ -10,40 +10,21 @@
 		line-height: 44px;
 		margin-right: 10px;
 	}
-	.link{
-		display: block;
-		height: 44px;
-		line-height: 44px;
-	}
-	.link i{
-		margin-left: 5px;
-		margin-right: 5px;
-	}
-	.active:hover{
+	.menu-active:hover{
 		background-color: #fff;
 	}
-	.active:hover i:last-child{
+	.menu-active:hover i:last-child{
 		transform:rotate(180deg);
 		transition: all 0.5s;
 	}
-	.active:hover .dropdown-layer{
+	.menu-active .dropdown-layer{
 		display: block;
-	}
-	.dropdown{
-		position: relative;
 	}
 	.dropdown li{
 		padding: 10px;
 	}
 	.dropdown-layer{
-		/*line-height: 30px;*/
-		background-color: #fff;
-		display: none;
-		position: absolute;
 		top:44px;
-		left: 0;
-		white-space: nowrap;
-		text-align: center;
 	}
 	.dropdown-layer li:hover{
 		background-color: #f5f7f5;

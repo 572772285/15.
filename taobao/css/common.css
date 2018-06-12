@@ -19,6 +19,9 @@
 	.dropdown{
 		position: relative;
 	}
+	.transition{
+		transition: all 0.5s;
+	}
 	.dropdown-layer{
 		line-height: 30px;
 		background-color: #fff;

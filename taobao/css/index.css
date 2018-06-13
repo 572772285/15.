@@ -15,7 +15,7 @@
 	}
 	.menu-active:hover i:last-child{
 		transform:rotate(180deg);
-		transition: all 0.5s;
+		
 	}
 	.menu-active .dropdown-layer{
 		display: block;
@@ -38,6 +38,42 @@
 		height: 100px;
 		background: yellow;
 	}
+	.header .container img{
+		width: 150px;
+		height: 50px;
+		margin-top: 25px;
+	}
+	.search{
+		margin-top: 35px;
+		margin-left: 100px;
+	}
+	.search .search-input{
+		width: 600px;
+		height: 35px;
+		outline: none;
+		box-sizing: border-box;
+	}
+	.search .submit{
+		width: 75px;
+		height: 35px;
+		background-color: black;
+		color: #fff;
+		outline: none;
+		border:none;
+		cursor: pointer;
+	}
+	.search .searchLayer{
+		width: 675px;
+		height: 300px;
+		border:1px solid black;
+		box-sizing: border-box;
+		background-color: #fff;
+		list-style: none;
+		cursor: pointer;
+	}
+		.search .searchLayer li:hover{
+			background-color: #f5f5f5;
+		}
 /*头部结束*/
 /*主导航开始*/
 	.nav-main{

@@ -8,7 +8,9 @@
 	<link rel="stylesheet" href="css/common.css">
 	<link rel="stylesheet" href="css/index.css">
 	<script src="js/jquery-1.12.4.js"></script>
+	<script src="search.js"></script>	
 	<script src="js/index.js"></script>
+
 </head>
 <body>
 		<!--顶部导航开始-->
@@ -74,7 +76,21 @@
 	<!--顶部导航结束-->
 	<!--头部开始-->
 	<div class="header">
-		<div class="container"></div>
+		<div class="container">
+			<h1 class="fl">
+				<a href="#" class="head-logo"><img src="images/header-logo.png" alt=""></a>
+			</h1>
+			<div class="search fl">
+				<form action="https://s.taobao.com/search" name="w" id="search-form">
+					<input type="text" class="fl search-input">
+					<input type="submit" class="submit">
+				</form>
+				<div class="searchLayer">
+					<li>爱仕达多</li>
+					<li>爱仕达多</li>
+				</div>
+			</div>
+		</div>
 	</div>
 	<!--头部结束-->
 	<!--主导航开始-->
@@ -113,4 +129,5 @@
 	</div>
 	<!--楼层4结束-->
 </body>
+
 </html>

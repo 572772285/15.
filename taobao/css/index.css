@@ -43,17 +43,17 @@
 		height: 50px;
 		margin-top: 25px;
 	}
-	.search{
+	.header .search{
 		margin-top: 35px;
 		margin-left: 100px;
 	}
-	.search .search-input{
+	.header .search .search-input{
 		width: 600px;
 		height: 35px;
 		outline: none;
 		box-sizing: border-box;
 	}
-	.search .submit{
+	.header .search .submit{
 		width: 75px;
 		height: 35px;
 		background-color: black;
@@ -62,17 +62,24 @@
 		border:none;
 		cursor: pointer;
 	}
-	.search .searchLayer{
+	.header .search .searchLayer{
 		width: 675px;
-		height: 300px;
-		border:1px solid black;
+		/*height: 301px;*/
+		border:1px solid #ccc;
 		box-sizing: border-box;
 		background-color: #fff;
 		list-style: none;
 		cursor: pointer;
+		border-top: none;
 	}
-		.search .searchLayer li:hover{
-			background-color: #f5f5f5;
+	.header .search .searchLayer li{
+		/*height: 30px;*/
+		line-height: 30px;
+		/*font-size: 14px;*/
+
+	}
+		.header .search .searchLayer li:hover{
+			background-color: #ccc;
 		}
 /*头部结束*/
 /*主导航开始*/

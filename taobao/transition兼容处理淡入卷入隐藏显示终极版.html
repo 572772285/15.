@@ -278,8 +278,32 @@
 							opacity:0
 						})
 					}
+				},
+				//淡入淡出上左右的卷入卷出
+				fadeSlideLeftRight:{
+					init:function($elem){
+						js.fadeInit($elem,{
+							width:0,
+							paddingLeft:0,
+							paddingRight:0,
+							opacity:0
+						})
+					},
+					show:function($elem){
+						js.fadeShow($elem)
+					},
+					hide:function($elem){
+						js.fadeHide($elem,{
+							width:0,
+							paddingLeft:0,
+							paddingRight:0,
+							opacity:0
+						})
+					}
 				}
 			}
+			
+
 			//简化JS代码
 			js._init=function($elem){
 				$elem.removeClass('transition');
@@ -354,9 +378,11 @@
 			//JS上下卷入卷出初始化
 			// js.slideUpDown.init($box);
 			//JS左右卷入卷出
-			js.slideLeftRight.init($box);
+			// js.slideLeftRight.init($box);
 			//JS淡入淡出上下卷入卷出
 			// js.fadeSlideUpDown.init($box);
+			//JS淡入淡出左右卷入卷出
+			js.fadeSlideLeftRight.init($box);
 		/*显示*/
 		$('button').eq(0).on('click',function(){
 			// slient.show($box);
@@ -367,8 +393,9 @@
 			// css3.fadeSlideLeftRight.show($box);
 			// js.fade.show($box);
 			// js.slideUpDown.show($box);
-			js.slideLeftRight.show($box);
+			// js.slideLeftRight.show($box);
 			// js.fadeSlideUpDown.show($box);
+			js.fadeSlideLeftRight.show($box);
 		})
 		
 		$('button').eq(1).on('click',function(){
@@ -380,8 +407,9 @@
 			// css3.fadeSlideLeftRight.hide($box);
 			// js.fade.hide($box);
 			// js.slideUpDown.hide($box);
-			js.slideLeftRight.hide($box);
+			// js.slideLeftRight.hide($box);
 			// js.fadeSlideUpDown.hide($box);
+			js.fadeSlideLeftRight.hide($box);
 		})
 	</script>
 

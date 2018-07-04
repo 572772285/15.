@@ -13,13 +13,13 @@
 	.menu-active:hover{
 		background-color: #fff;
 	}
-	.menu-active:hover i:last-child{
+	.menu-active i{
 		transform:rotate(180deg);
 		
 	}
-	.menu-active .dropdown-layer{
+	/*.menu-active .dropdown-layer{
 		display: block;
-	}
+	}*/
 	.dropdown li{
 		padding: 10px;
 	}
@@ -31,6 +31,12 @@
 	}
 	.dropdown-item{
 		color: #4d555d;
+	}
+	.dropdown-loadding{
+		width: 32px;
+		height: 32px;
+		background: url(../images/loading.gif) no-repeat;
+		margin: 20px;
 	}
 /*顶部导航结束*/
 /*头部开始*/
@@ -86,6 +92,21 @@
 	.nav-main{
 		height: 50px;
 		background: orange;
+	}
+	.nav-main .link{
+		display: inline-block;
+		height: 50px;
+		line-height: 50px;
+		color: #fff;
+		font-size: 14px;
+		margin-right: 20px;
+		cursor: pointer;
+	}
+	.nav-main .link:hover{
+		color: #ea675a;
+	}
+	.nav-main .link:nth-child(1){
+		margin-left: 100px;
 	}
 /*主导航结束*/
 /*主要内容开始*/

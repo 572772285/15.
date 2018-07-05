@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>淘宝案例</title>
+	<link rel="stylesheet" href="css/重置代码.css">
+	<link rel="stylesheet" href="../src/web-fonts-with-css/css/fontawesome-all.min.css">
+	<link rel="stylesheet" href="css/common.css">
+	<link rel="stylesheet" href="css/index.css">
+	<style>
+		button{
+			width: 100px;
+			height: 50px;
+			font-size: 25px;
+		}
+		div{
+			width: 100px;
+			height: 100px;
+			background-color: red;
+			position: absolute;
+			top:100px;
+			left: 0;
+		}
+	</style>
+</head>
+<body>
+<button>按钮1</button>
+<button>按钮2</button>
+<div></div>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script src="search.js"></script>
+<script src="transition.js"></script>
+<script src="showhide.js"></script>
+<script src="js/dropdown.js"></script>	
+<script src="js/index.js"></script>
+<script>
+
+	(function($){
+		$('button').eq(0).on('click',function(){
+			$('div').css({
+				left:'50px',
+				top:'150px'
+			})
+		})
+		$('button').eq(1).on('click',function(){
+			
+		})
+	})(jQuery);
+</script>
+</html>

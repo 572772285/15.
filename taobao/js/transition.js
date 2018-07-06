@@ -1,5 +1,5 @@
 ;(function(w){
-	console.log(document.body.style.transitionxx);
+	console.log(document.body.style.transition);
 	var transitionEventName = {
 		transition: 'transitionend',
 		MozTransition: 'transitionend',

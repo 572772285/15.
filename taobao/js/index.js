@@ -120,8 +120,25 @@
 	/*中心轮播图开始*/
 	var $focusCarousel = $('.focus .carousel-container');
 
+	$focusCarousel.on('carousel-show',function(ev,index,elem){
+		//找到IMG
+		var $img=$(elem).find('img');
+		//找到img的地址（网络地址）
+		var imgUrl=$img.data('src');
+		//这是一个方法，建一个image对象
+		// $img.attr('src',imgUrl)
+		var image = new Image();
+		image.onload=function(){
+			//把地址赋给img
+			$img.attr('src',imgUrl)
+		}
+		image.src = imgUrl;
+
+	})
 	$focusCarousel.carousel({
-		activeIndex:5
+		activeIndex:0,
+		mode:'slide',
+		interval:0
 	})
 	/*中心轮播图结束*/
 })(jQuery);

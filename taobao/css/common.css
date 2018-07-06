@@ -153,5 +153,7 @@ body{
 	.carousel-container.fade .carousel-item{
 		display: none;
 	}
-
+	.carousel-container.slide .carousel-item{
+		left:100%;
+	}
 /*轮播图公共样式结束*/

@@ -36,12 +36,20 @@
 <script>
 
 	(function($){
-		function Slient($elem){
-			this.$elem=$elem;
-			this.$elem.removeClass('transition');
+		function init($elem){
+			console.log(this)
+			var self=this;
+			this.$elem=$elem;	
 			//如果没有给top和left，下面两步是自动获取当前的X,Y
 			this.currentX = parseFloat(this.$elem.css('left'));
 			this.currentY = parseFloat(this.$elem.css('top'));
+		}
+
+
+		function Slient($elem){
+
+			init($elem)
+			self.$elem.removeClass('transition');
 		}
 		Slient.prototype={
 
@@ -52,14 +60,14 @@
 				y=(typeof y == 'number') ? y : this.currentY;
 				if(this.currentX==x && this.currentY == y) return	
 				console.log('move..');
-				this.$elem.trigger('move');
-				this.$elem.css({
+				self.$elem.trigger('move');
+				self.$elem.css({
 					top:y,
 					left:x
 				})
-				this.$elem.trigger('moved');
-				this.currentX=x;
-				this.currentY=y;
+				self.$elem.trigger('moved');
+				self.currentX=x;
+				self.currentY=y;
 			},
 			x:function(x){
 				this.to(x)
@@ -153,7 +161,7 @@
 				this.to(null,y)
 			}
 		}
-		var move=new Js($('.box'));
+		var move=new Css3($('.box'));
 		$('.box').on('move moved',function(ev){
 			console.log(ev.type)
 		})

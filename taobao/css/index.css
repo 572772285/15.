@@ -1,3 +1,4 @@
+/*顶部导航开始*/
 	.nav-site{
 		height: 44px;
 		background: #f3f5f7;
@@ -107,7 +108,6 @@
 		border: 1px solid #ccc;
 		border-top: none;
 		box-sizing: border-box;
-		z-index: 5;
 	}
 	.header .search-item{
 		width: 100%;
@@ -140,8 +140,9 @@
 /*主导航结束*/
 /*主要内容开始*/
 	.focus{
-		height: 500px;
-		background: pink;
+		height: 504px;
+		background: #f7f7f7;
+		margin-bottom: 10px;
 	}
 	.category{
 		position: relative;
@@ -232,19 +233,142 @@
 	
 	.focus .carousel-container,
 	.focus .carousel-container .carousel-item img {
-		width: 768px;
+		width: 728px;
 		height: 504px;
+	}
+
+	.focus-sidebar {
+		width: 249px;
+	}
+
+	.focus-news {
+		padding: 7px 20px 12px;
+		background-color: #fff;
+		border: 1px solid #d9dde1;
+		border-bottom: none;
+	}
+	.focus-news-head {
+		height: 38px;
+		line-height: 38px;
+	}
+	.focus-news-title {
+		color: #ea675a;
+		font-size: 16px;
+	}
+	.focus-news-body {
+		line-height: 28px;
+	}
+	.focus-service {
+		background-color: #fff;
+		border-left: 1px solid #d9dde1;
+	}
+	.focus-service-item {
+		width: 61px;
+		height: 71px;
+		border-top: 1px solid #d9dde1;
+		border-right: 1px solid #d9dde1;
+		text-align: center;
+	}
+	.focus-service-icon,
+	.focus-service-text {
+		display: inline-block;
+		width: 100%;
+	}
+	.focus-service-icon {
+		margin-top: 17px;
+		color: #f67272;
+		font-size: 22px;
+	}
+	.focus-service-text {
+		margin-top: 6px;
+		color: #4d555d;
+	}
+	.focus-ad {
+		width: 100%;
+		height: 90px;
+		background: url(../images/focus-ad.png) no-repeat;
+	}
+	.focus .slider{
+		margin-left: 8px;
 	}	
+
 /*主要内容结束*/
 /*今日热销开始*/
 	.todays{
-		height: 100px;
-		background: black;
+		height: 158px;
+		background: #fff;
 	}
+	.todays .carousel-container{
+		width: 100%;
+		height: 158px;
+	}
+	.todays .carousel-container .carousel-item img {
+		width: 240px;
+		height: 158px;
+		float: left;
+	}	
 /*今日热销结束*/
 /*楼层开始*/
 	.floor{
-		height: 300px;
+		height: 450px;
 		background: red;
+	}
+	.floor .floor-top{
+		height: 50px;
+		background-color: #fff;
+		line-height: 50px;
+		border-bottom:1px solid red;
+	}
+	.floor .floortitle div,
+	.floor .floortitle h2{
+		float: left;
+		font-size: 20px;
+	}
+	.floor .floortitle div{
+		width: 20px;
+		height: 20px;
+		border-radius: 50%;
+		background-color: black;
+		color: #fff;
+		line-height: 20px;
+		text-align: center;
+		margin-top: 16px; 
+	}
+	.floor .floortitle span{
+		/*display: block;*/
+		float: right;
+		margin-right: 10px;
+		font-size: 14px;
+	}
+	.floor .floortitle span:hover{
+		color: #ccc;
+		cursor: pointer;
+	}
+	.active{
+		background-image:url(../images/focus-carousel/floor-arrow.png);
+		background-repeat: no-repeat;
+		background-position:bottom;
+		color: red;
+	}
+	.floor .floor-body{
+		width: 100%;
+		height: 400px;
+		background-color: #fff;
+	}
+	.floor .floor-body .imgs{
+		width: 200px;
+		height: 200px;
+		text-align: center;
+		float: left;
+	}
+	.floor .floor-body .imgs img{
+		width: 150px;
+	}
+	.floor .floor-body .price{
+		color: red;
+		font-size: 14px;
+		font-weight: bold;
+		text-align: center;
+		margin-bottom: 10px;
 	}
 /*楼层结束*/

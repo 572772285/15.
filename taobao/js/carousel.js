@@ -71,7 +71,7 @@
 			})
 			.on('click','.control-right',function(){
 				//划动时向左划,方向是1
-				self.tab(self._getCorrectIndex(self.now+1,1));
+				self.tab(self._getCorrectIndex(self.now+1),1);
 			})
 			.on('click','.control-left',function(){
 				//划动时向右划,方向是-1
@@ -159,7 +159,7 @@
 				var $this = $(this);
 				var carousel = $this.data('carousel');
 				if(!carousel){//单例模式
-					options  = $.extend(Carousel.DEFAULTS,options);
+					options  = $.extend({},Carousel.DEFAULTS,options);
 					carousel = new Carousel($(this),options);
 					$this.data('carousel',carousel);
 				}

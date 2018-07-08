@@ -310,7 +310,7 @@
 /*今日热销结束*/
 /*楼层开始*/
 	.floor{
-		height: 450px;
+		height: 500px;
 		background: red;
 	}
 	.floor .floor-top{
@@ -321,10 +321,10 @@
 	}
 	.floor .floortitle div,
 	.floor .floortitle h2{
-		float: left;
+		/*float: left;*/
 		font-size: 20px;
 	}
-	.floor .floortitle div{
+	.floor .floortitle .left div{
 		width: 20px;
 		height: 20px;
 		border-radius: 50%;
@@ -334,9 +334,12 @@
 		text-align: center;
 		margin-top: 16px; 
 	}
+	.floor .floortitle .left{
+		float: left;
+	}
+
 	.floor .floortitle span{
-		/*display: block;*/
-		float: right;
+		float: left;
 		margin-right: 10px;
 		font-size: 14px;
 	}
@@ -352,14 +355,20 @@
 	}
 	.floor .floor-body{
 		width: 100%;
-		height: 400px;
+		height: 420px;
 		background-color: #fff;
+		display: none;
 	}
 	.floor .floor-body .imgs{
 		width: 200px;
 		height: 200px;
 		text-align: center;
 		float: left;
+		margin-bottom: 10px;
+	}
+	.floor .floor-body .imgs:hover{
+		box-shadow:  1px 1px 5px #888888;
+
 	}
 	.floor .floor-body .imgs img{
 		width: 150px;

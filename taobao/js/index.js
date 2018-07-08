@@ -171,7 +171,7 @@
 	/*中心轮播图开始*/
 	var $focusCarousel = $('.focus .carousel-container');
 	//调用按需加载函数
-	carouselLoading($focusCarousel);
+	carouselLoading($focusCarousel);	
 	//加载完毕后off
 	$focusCarousel.on('carousel-loadedItems',function(){
 		$focusCarousel.off('carousel-show',$focusCarousel.loadFn)
@@ -196,4 +196,19 @@
 		// interval:0
 	})
 	/*今日热销结束*/
+	/*鞋包服装开始*/
+	var $floor=$('.floor');
+	$floor.on('tab-show tab-shown tab-hide tab-hidden',function(ev,index,elem){
+		// console.log(index,ev.type,elem)
+	})
+	$floor.tab({
+		css3:false,
+		js:true,
+		mode:'fade',
+		eventName:'mouseenter',
+		activeIndex:0,
+		delay:200,
+		interval:0
+	})
+	/*鞋包服装结束*/
 })(jQuery);

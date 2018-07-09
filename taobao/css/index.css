@@ -370,8 +370,9 @@
 		box-shadow:  1px 1px 5px #888888;
 
 	}
-	.floor .floor-body .imgs img{
+	.floor .floor-body .imgs .floor-img{
 		width: 150px;
+		/*float: left;*/
 	}
 	.floor .floor-body .price{
 		color: red;
@@ -379,5 +380,13 @@
 		font-weight: bold;
 		text-align: center;
 		margin-bottom: 10px;
+	}
+	.floor .tab-divider{
+		/*width: 1px;*/
+		height: 20px;
+		border-left: 1px solid #ccc;
+		list-style: none;
+		margin-top: 16px;
+		margin-right: 10px;
 	}
 /*楼层结束*/

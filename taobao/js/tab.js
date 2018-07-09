@@ -23,7 +23,9 @@
 			//监听$tabPanels上面的show、shown、hide、hidden从而达到按需加载目的
 			this.$tabPanels.on('show shown hide hidden',function(ev){
 				self.$elem.trigger('tab-'+ev.type,[self.$tabPanels.index(this),this]);
-			})
+			});
+						//触发事件
+			self.$elem.trigger('tab-show',[this.now,this.$tabPanels[this.now]]);
 			//事件名称容错处理
 			
 			if(this.options.eventName=='click'){
@@ -37,15 +39,16 @@
 			//使用showhide淡入淡出显示方法
 			this.$tabPanels.showHide(this.options);
 			this.$elem.on(eventName,'.control',function(){
+				
 				var $this=$(this);
-				var xiabiao=$this.index();
+				var index=$this.index();
 				if(self.options.delay){
 					clearTimeout(timer);
 					timer=setTimeout(function(){
-						self.toggle(xiabiao);
+						self.toggle(index);
 					},self.options.delay)
 				}else{
-					self.toggle(xiabiao);
+					self.toggle(index);
 				}	
 			});
 			if(this.options.interval){
@@ -58,15 +61,15 @@
 			if(index < 0) return (this.itemNum - 1);
 			return index;
 		},
-		toggle:function(xiabiao){
+		toggle:function(index){
 			//隐藏当前的
 			this.$tabItems.eq(this.now).removeClass('active');
 			this.$tabPanels.eq(this.now).showHide('hide');
 
 			//显示下一个的
-			this.$tabItems.eq(xiabiao).addClass('active');
-			this.$tabPanels.eq(xiabiao).showHide('show');
-			this.now=xiabiao;
+			this.$tabItems.eq(index).addClass('active');
+			this.$tabPanels.eq(index).showHide('show');
+			this.now=index;
 		},
 		auto(){
 			var self = this;
@@ -82,7 +85,7 @@
 
 	Tab.DEFAULTS = {
 		css3:false,
-		js:true,
+		js:false,
 		mode:'fade',
 		eventName:'mouseenter',
 		activeIndex:0,

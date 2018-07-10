@@ -55,8 +55,8 @@
 	}
 	*/
 	function lazyLoad(options){
-		var item = {},
-		    totalItemNum =  options.totalItemNum,
+		var item = {},//判断对应元素是否加载过
+		    totalItemNum =  options.totalItemNum,//总共需要脚在的项目
 			loadedItemNum = 0,
 			loadFn = null,
 			$elem = options.$elem,
@@ -75,14 +75,14 @@
 			}
 		});
 
-		$elem.on(eventPrefix+'-loadedItems',function(){
+		$elem.on(eventPrefix+'-loadedItems',function(){//加载完成后移除的事情
 			$elem.off(eventName,loadFn)
 		});
 	}	
-
+	//公共函数结束
 	/*顶部下拉菜单开始*/
 	var $menu = $('.nav-site .dropdown');
-	
+	//接收trigger事件   
 	$menu.on('dropdown-show',function(ev){
 		loadHtmlOnce($(this),buildMenuItem)
 	});
@@ -164,7 +164,7 @@
 			for(var j = 0;j<data[i].items.length;j++){
 				html += '<a href="#" class="link">'+data[i].items[j]+'</a>'
 			}
-			html += '</dd></dl>';
+			html += '</dd>`</dl>';
 		}
 		//模拟网络延时
 		setTimeout(function(){
@@ -389,4 +389,53 @@
 		},200)
 	});
 	/*鞋包服装结束*/
+
+	//判断楼层号
+	function whichFloor(){
+		var num = -1;
+		$floors.each(function(index,elem){
+			num = index;
+			if($win.scrollTop() + $win.height()/2 < $(elem).offset().top){
+				num = index - 1;
+				return false;
+			}
+		})
+		return num;
+	}
+	//设置电梯
+	var $elevator = $('#elevator');
+	$elevator.items = $elevator.find('.elevator-item');
+	function setElevator(){
+		var num = whichFloor();
+		if(num == -1){
+			$elevator.fadeOut(); 
+		}else{
+			$elevator.fadeIn();
+			$elevator.items.removeClass('elevator-active'); 
+			$elevator.items.eq(num).addClass('elevator-active'); 
+		}
+	}
+	//监听事件自动设置楼层
+	$win.on('scroll resize load',function(){
+		clearTimeout($elevator.elevatorTimer);
+		$elevator.elevatorTimer = setTimeout(function(){
+			setElevator();
+		},200)
+	});
+	//监听电梯点击事件
+	$elevator.on('click','.elevator-item',function(){
+		var num = $elevator.items.index(this);
+		$('body,html').animate({
+			scrollTop:$floors.eq(num).offset().top
+		})
+	});
+
+	/*电梯结束*/
+
+	/*回到顶部*/
+	$('#backToTop').on('click',function(){
+		$('body,html').animate({
+			scrollTop:0
+		})
+	});
 })(jQuery);

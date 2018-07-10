@@ -42,7 +42,7 @@
 		},
 		autocomplete:function(){
 			//获取数据
-			// this.getData();
+			// this.getData();监听oninput事件
 			this.$searchInput
 			.on('input',function(){
 

@@ -39,9 +39,10 @@
 			//使用showhide淡入淡出显示方法
 			this.$tabPanels.showHide(this.options);
 			this.$elem.on(eventName,'.control',function(){
-				
+				// console.log(self.$elem)
 				var $this=$(this);
 				var index=$this.index();
+				console.log($this.index(1))
 				if(self.options.delay){
 					clearTimeout(timer);
 					timer=setTimeout(function(){
@@ -55,11 +56,6 @@
 				this.auto();
 				this.$elem.hover($.proxy(self.pause,self),$.proxy(self.auto,self));		
 			}	
-		},
-		_getCorrectIndex(index){
-			if(index >= this.itemNum) return 0;
-			if(index < 0) return (this.itemNum - 1);
-			return index;
 		},
 		toggle:function(index){
 			//隐藏当前的
@@ -80,6 +76,11 @@
 		},
 		pause(){
 			clearInterval(this.autoTimer);
+		},		
+		_getCorrectIndex(index){
+			if(index >= this.itemNum) return 0;
+			if(index < 0) return (this.itemNum - 1);
+			return index;
 		}
 	}
 

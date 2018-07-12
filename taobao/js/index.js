@@ -62,6 +62,7 @@
 			$elem = options.$elem,
 			eventName = options.eventName,
 			eventPrefix = options.eventPrefix;
+			console.log($elem)
 		
 		$elem.on(eventName,loadFn = function(ev,index,elem){//确定加载时机
 			if(item[index] != 'loaded'){//具体加载

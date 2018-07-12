@@ -454,9 +454,11 @@
 		line-height: 40px;
 		background: #ccc;
 		position: absolute;
-		left:0;
-		top:0;
+		left:0px;
+		top:0px;
 		z-index: 1;
+		/*margin-top: 1px;*/
+
 	}
 	.toolbar-item:hover .toolbar-text{
 		left:-60px;

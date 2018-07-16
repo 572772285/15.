@@ -1,0 +1,56 @@
+*{margin: 0;
+padding: 0;
+}
+//设置rem的基准值
+@rem:32;
+.rem(@attr,@px1){
+	@{attr}:unit(@px1/@rem,rem);
+}
+.rem(@attr,@px1,@px2){
+	@{attr}:unit(@px1/@rem,rem) unit(@px2/@rem,rem);
+}
+.rem(@attr,@px1,@px2,@px3){
+	@{attr}:unit(@px1/@rem,rem) unit(@px2/@rem,rem) unit(@px3/@rem,rem);
+}
+.rem(@attr,@px1,@px2,@px3,@px4){
+	@{attr}:unit(@px1/@rem,rem) unit(@px2/@rem,rem) unit(@px3/@rem,rem) unit(@px4/@rem,rem);
+}
+.border-bottom{
+	border-bottom: 1px solid #ccc;
+}
+.cart-top{
+	width: 100%;
+	.rem(line-height,45);
+	font-size: 25px;
+	.border-bottom;
+	.header-back{
+		.rem(width,50);
+		text-align: center;
+	}
+	.title{
+		display: inline-block;
+		.rem(width,200);
+		text-align: center;
+	}
+}
+.floor1{
+	width: 100%;
+	.rem(line-height,45);	
+	font-size: 25px;
+	.floor1-left{
+		.rem(width,20);
+		text-align: center;
+	}
+	.input{
+		.rem(width,200);
+		outline: none;
+		border:none;
+		// text-align: center;
+	}
+	.floor-right{
+		text-decoration: none;
+		color:#db292f;
+		font-size: 18px;
+	}
+}
+

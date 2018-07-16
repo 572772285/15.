@@ -1,0 +1,41 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.border-bottom {
+  border-bottom: 1px solid #ccc;
+}
+.cart-top {
+  width: 100%;
+  line-height: 1.40625rem;
+  font-size: 25px;
+  border-bottom: 1px solid #ccc;
+}
+.cart-top .header-back {
+  width: 1.5625rem;
+  text-align: center;
+}
+.cart-top .title {
+  display: inline-block;
+  width: 6.25rem;
+  text-align: center;
+}
+.floor1 {
+  width: 100%;
+  line-height: 1.40625rem;
+  font-size: 25px;
+}
+.floor1 .floor1-left {
+  width: 0.625rem;
+  text-align: center;
+}
+.floor1 .input {
+  width: 6.25rem;
+  outline: none;
+  border: none;
+}
+.floor1 .floor-right {
+  text-decoration: none;
+  color: #db292f;
+  font-size: 18px;
+}

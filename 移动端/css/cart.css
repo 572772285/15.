@@ -153,6 +153,7 @@
 }
 .car-bottom .left {
   width: 6.875rem;
+  height: 100%;
   float: left;
   background-color: #fff;
 }
@@ -178,5 +179,6 @@
   border: none;
   background-color: #db292f;
   width: 3.125rem;
+  height: 100%;
   line-height: 1.5rem;
 }

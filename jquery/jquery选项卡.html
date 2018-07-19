@@ -42,8 +42,8 @@
 				var xiabiao=$this.index();
 				// console.log($('.content>li').eq(xiabiao))
 				var dangqian=$('.content>li').eq(xiabiao)
-				dangqian.slideDown(200);
-				dangqian.siblings().slideUp(200);
+				dangqian.stop().show();
+				dangqian.siblings().hide();
 
 				// dangqian.addClass('chulai');
 				// dangqian.siblings().removeClass('chulai');

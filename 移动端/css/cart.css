@@ -154,6 +154,7 @@
 .car-bottom .left {
   width: 6.875rem;
   float: left;
+  background-color: #fff;
 }
 .car-bottom .left .top {
   font-size: 20px;
